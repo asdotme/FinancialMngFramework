@@ -1,4 +1,4 @@
-package edu.mum.cs525.presentation;
+package edu.mum.cs525.finco.presentation;
 
 import javax.swing.*;
 import java.awt.*;
