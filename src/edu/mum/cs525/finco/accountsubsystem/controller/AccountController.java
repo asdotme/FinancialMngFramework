@@ -1,7 +1,7 @@
 package edu.mum.cs525.finco.accountsubsystem.controller;
 
-import edu.mum.cs525.finco.model.Transaction.ITransaction;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
+import edu.mum.cs525.finco.accountsubsystem.model.ITransaction;
 import edu.mum.cs525.finco.customersubsystem.model.ICompany;
 import edu.mum.cs525.finco.customersubsystem.model.IPerson;
 
@@ -15,9 +15,9 @@ public class AccountController implements IAccountController {
         accountVisitor.createAccount(person);
 
     }
-    public void createCompanyAccount(IAccountVisitor accountVisitor, ICompany company) {
 
-        accountVisitor.createAccount(company);
+    @Override
+    public void withdrawMoney(IAccount iAccount, ITransaction iTransaction) {
 
     }
 
@@ -26,10 +26,14 @@ public class AccountController implements IAccountController {
 
     }
 
-    @Override
-    public void withdrawMoney(IAccount iAccount, ITransaction iTransaction) {
+
+    public void createCompanyAccount(IAccountVisitor accountVisitor, ICompany company) {
+
+        accountVisitor.createAccount(company);
 
     }
+
+
 
     @Override
     public void addInterest(List<IAccount> iAccountList) {
