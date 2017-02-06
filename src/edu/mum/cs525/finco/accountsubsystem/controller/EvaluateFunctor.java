@@ -1,7 +1,7 @@
 package edu.mum.cs525.finco.accountsubsystem.controller;
 
-import edu.mum.cs525.finco.model.Transaction.ITransaction;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
+import edu.mum.cs525.finco.accountsubsystem.model.ITransaction;
 
 /**
  * Created by asme on 2/5/17.
