@@ -7,9 +7,9 @@ import javax.swing.*;
 
 public class JDialog_AddCCAccount extends JDialog
 {
-    private BankFrm parentframe;
+    private CardFrm parentframe;
     
-	public JDialog_AddCCAccount(BankFrm parent)
+	public JDialog_AddCCAccount(CardFrm parent)
 	{
 		super(parent);
 		parentframe=parent;
