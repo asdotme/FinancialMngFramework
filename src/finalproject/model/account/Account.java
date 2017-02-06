@@ -8,7 +8,6 @@ public abstract class Account  implements IAccount{
 
     public Account(){
 
-
     };
 
 }

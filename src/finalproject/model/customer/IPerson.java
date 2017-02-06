@@ -1,4 +1,4 @@
 package finalproject.model.customer;
 
-public interface IPerson {
+public interface IPerson extends ICustomer {
 }
