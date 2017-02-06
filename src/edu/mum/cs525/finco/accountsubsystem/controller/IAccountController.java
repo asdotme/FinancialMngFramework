@@ -10,7 +10,6 @@ import java.util.List;
 
 public interface IAccountController {
     void createCompanyAccount(IAccountVisitor accountVisitor, ICompany company);
-    void createPesonalAccount(IAccountVisitor accountVisitor, IPerson person);
     void depositeMoney(IAccount iAccount, ITransaction iTransaction);
     void withdrawMoney(IAccount iAccount, ITransaction iTransaction);
     void addInterest(List<IAccount> iAccountList);
