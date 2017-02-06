@@ -36,7 +36,7 @@ public class CardFrm extends JFrame
 		JPanel1.setBounds(0,0,575,310);
 		/*
 		/Add five buttons on the pane 
-		/for Adding personal account, Adding company account
+		/for Adding personal accountsubsystem, Adding company accountsubsystem
 		/Deposit, Withdraw and Exit from the system
 		*/
         JScrollPane1 = new JScrollPane();
@@ -57,7 +57,7 @@ public class CardFrm extends JFrame
         JTable1.setBounds(0, 0, 420, 0);
 //        rowdata = new Object[8];
 		
-		JButton_NewCCAccount.setText("Add Credit-card account");
+		JButton_NewCCAccount.setText("Add Credit-card accountsubsystem");
 		JPanel1.add(JButton_NewCCAccount);
 		JButton_NewCCAccount.setBounds(24,20,192,33);
 		JButton_GenBill.setText("Generate Monthly bills");

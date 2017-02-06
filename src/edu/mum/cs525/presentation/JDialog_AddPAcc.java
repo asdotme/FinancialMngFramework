@@ -1,14 +1,14 @@
-package finalproject.presentation.bank;/*
+package edu.mum.cs525.presentation;/*
 		A basic implementation of the JDialog class.
 */
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 public class JDialog_AddPAcc extends JDialog
 {
     private BankFrm parentframe;
-    
+
 	public JDialog_AddPAcc(BankFrm parent)
 	{
 		super(parent);

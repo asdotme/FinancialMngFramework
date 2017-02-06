@@ -1,10 +1,10 @@
-package finalproject.presentation.bank;
+package edu.mum.cs525.presentation;
 
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.*;
 
 /**
  * A basic JFC based application.
