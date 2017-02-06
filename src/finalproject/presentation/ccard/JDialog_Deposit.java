@@ -7,10 +7,10 @@ public class JDialog_Deposit extends JDialog
 {
     
 
-    private BankFrm parentframe;
+    private CardFrm parentframe;
     private String name;
     
-	public JDialog_Deposit(BankFrm parent, String aname)
+	public JDialog_Deposit(CardFrm parent, String aname)
 	{
 		super(parent);
 		parentframe=parent;
