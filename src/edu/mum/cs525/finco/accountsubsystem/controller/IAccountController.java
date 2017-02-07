@@ -18,5 +18,5 @@ public interface IAccountController {
     String generateReport(IAccount account);
     public void setDbStore(IDataAccessSubSystem dbStore);
     public  List<IAccount> getAccounts();
-    public Optional<IAccount> getAccount(String accountNumber);
+    public IAccount getAccount(String accountNumber);
 }

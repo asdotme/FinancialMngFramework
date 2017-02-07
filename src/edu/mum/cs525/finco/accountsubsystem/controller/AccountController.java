@@ -69,13 +69,13 @@ public class AccountController implements IAccountController {
 	}
 
 	@Override
-	public Optional<IAccount> getAccount(String accountNumber) {
+	public IAccount getAccount(String accountNumber) {
 		// TODO Auto-generated method stub
 		Iterator<IAccount>iter = dbStore.getAccountList().iterator();
-		Optional<IAccount> account = null;
+		IAccount account = null;
 		while(iter.hasNext()){
-			account = Optional.of(iter.next());
-			if(accountNumber.equals(account.get().getAccountNumber())){
+			account = iter.next();
+			if(accountNumber.equals(account.getAccountNumber())){
 				break;
 			}
 		}

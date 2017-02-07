@@ -241,12 +241,12 @@ public class FinCoMainFrame extends JFrame {
 	}
 
 	void JButtonDeposit_actionPerformed(ActionEvent event) {
-		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
+		int selection = JTable1.getSelectionModel().getMinSelectionIndex(); //get the row
 		if (selection >= 0) {
-//			IAccount account = (IAccount) finco.getDefaultTableModel().getValueAt(selection, 0);
+		String accountNumber = finco.getDefaultTableModel().getValueAt(selection, 0).toString();
 			System.out.println("finco.getDefaultTableModel().getValueAt(selection, 0)");
 			System.out.println(finco.getDefaultTableModel().getValueAt(selection, 0));
-			JDialog dep = new JDialog_Deposit(this, new Account(), selection, finco);
+			JDialog dep = new JDialog_Deposit(this, accountNumber, finco);
 			dep.setBounds(430, 15, 275, 140);
 			dep.setVisible(true);
 		}

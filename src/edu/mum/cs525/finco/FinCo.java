@@ -1,6 +1,7 @@
 package edu.mum.cs525.finco;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -197,6 +198,14 @@ public class FinCo implements IFinCo {
 	@Override
 	public void addPersonAccount(IAccountVisitor accountVisitor, IPerson person, String accountNumber) {
 		accountController.createPersonAccount(accountVisitor, person, accountNumber);	
+	}
+
+	@Override
+	public IAccount getAccountFromAccountNumber(String accountNumber) {
+		IAccount account=accountController.getAccount(accountNumber);
+		return account;
+		
+			
 	}
 	
 }
