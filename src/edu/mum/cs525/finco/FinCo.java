@@ -51,7 +51,8 @@ public class FinCo implements IFinCo {
 
     @Override
     public void withdrawMoney(IAccount account, ITransaction transaction) {
-        account.withdraw(transaction);
+    	accountController.withdrawMoney(transaction, account);
+       // account.withdraw(transaction);
     }
 
     @Override
@@ -122,6 +123,7 @@ public class FinCo implements IFinCo {
 
     @Override
     public void depositeMoney(IAccount account, ITransaction transaction) {
+    	accountController.depositeMoney(transaction, account);
         /*int ammountColIndex = defaultTableModel.findColumn(getAmountColumnLabel());
         double newamount = (double) defaultTableModel.getValueAt(selectedIndex, ammountColIndex) + amount;
         defaultTableModel.setValueAt(newamount, selectedIndex, ammountColIndex); //put the value in selected row and column
@@ -134,7 +136,7 @@ public class FinCo implements IFinCo {
         }*/
 
         //update the model and the account, push it also into the database
-    	account.deposite(transaction);
+    	//account.deposite(transaction);
 
     }
 
