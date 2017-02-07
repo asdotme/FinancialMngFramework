@@ -9,9 +9,9 @@ import java.util.List;
  * Created by asme on 2/6/17.
  */
 public class DataAccessSubSystem implements IDataAccessSubSystem {
-    List<IAccount> accountList=new ArrayList<>();
+    static List<IAccount> accountList=new ArrayList<>();
 
-    public List<IAccount> getAccounts() {
+    public static List<IAccount> getAccounts() {
         return null;
     }
 

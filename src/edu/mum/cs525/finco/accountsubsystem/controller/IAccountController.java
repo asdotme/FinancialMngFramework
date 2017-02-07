@@ -13,7 +13,7 @@ public interface IAccountController {
     void createCompanyAccount(IAccountVisitor accountVisitor, ICustomer customer);
     void depositeMoney(IAccount account, ITransaction transaction);
     void withdrawMoney(IAccount account, ITransaction transaction);
-    void addInterest(List<IAccount> iAccountList);
+    void addInterest();
     void generateReport(IAccount account);
 
 }
