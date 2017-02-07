@@ -256,6 +256,8 @@ public class FinCoMainFrame extends JFrame {
 	void JButtonWithdraw_actionPerformed(ActionEvent event) {
 		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
 		if (selection >= 0) {
+			String accountNumber = finco.getDefaultTableModel().getValueAt(selection, 0).toString();
+			
 			IAccount account = (IAccount) finco.getDefaultTableModel().getValueAt(selection, 0);
 			JDialog withdrawDialog = new JDialog_Withdraw(this, account, selection, finco);
 			withdrawDialog.setBounds(430, 15, 275, 140);
