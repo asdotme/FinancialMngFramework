@@ -1,10 +1,11 @@
-package edu.mum.cs525.finco.accountsubsystem.model;
+package finalproject.model.account;
 
+import finalproject.model.Transaction.Transaction;
 
 public interface IAccount {
-    void deposite(ITransaction transaction);
-    void withdraw(ITransaction transaction);
+    void deposite(Transaction transaction);
+    void withdraw(Transaction transaction);
     void addInterest();
-    void generateAccount();
-    void evaluateTransaction(ITransaction transaction, IAccount account);
+    void evaluateTransaction(Transaction transaction);
+    String generateReport();
 }

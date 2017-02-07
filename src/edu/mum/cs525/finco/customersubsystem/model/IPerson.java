@@ -1,4 +1,4 @@
-package edu.mum.cs525.finco.customersubsystem.model;
+package finalproject.model.customer;
 
 public interface IPerson extends ICustomer {
 }
