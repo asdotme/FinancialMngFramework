@@ -18,7 +18,7 @@ public  class AccountLogger implements IAccount {
 
 
     @Override
-    public void deposite(Transaction transaction) {
+    public void deposite(ITransaction transaction) {
         // TODO Auto-generated method stub
         account.deposite(transaction);
         postExecute();
@@ -26,7 +26,7 @@ public  class AccountLogger implements IAccount {
 
 
     @Override
-    public void withdraw(Transaction transaction) {
+    public void withdraw(ITransaction transaction) {
         // TODO Auto-generated method stub
         account.withdraw(transaction);
         postExecute();
@@ -42,7 +42,7 @@ public  class AccountLogger implements IAccount {
 
 
     @Override
-    public void evaluateTransaction(Transaction transaction) {
+    public void evaluateTransaction(ITransaction transaction) {
         // TODO Auto-generated method stub
         account.evaluateTransaction(transaction);
     }

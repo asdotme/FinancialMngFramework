@@ -13,6 +13,7 @@ import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
 import edu.mum.cs525.finco.accountsubsystem.controller.IAccountController;
 import edu.mum.cs525.finco.accountsubsystem.controller.IAccountVisitor;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
+import edu.mum.cs525.finco.accountsubsystem.model.ITransaction;
 import edu.mum.cs525.finco.customersubsystem.controller.CustomerController;
 import edu.mum.cs525.finco.customersubsystem.controller.ICustomerController;
 import edu.mum.cs525.finco.customersubsystem.model.IAddress;
@@ -45,14 +46,11 @@ public class FinCo implements IFinCo {
 		this.customerController= new CustomerController();
 	}
     
-	@Override
-    public void addAccount(IAccountVisitor accountVisitor, ICustomer customer) {
 
-    }
 
     @Override
-    public void withdrawMoney(IAccount account) {
-        account.withdraw(null);
+    public void withdrawMoney(IAccount account, ITransaction transaction) {
+        account.withdraw(transaction);
     }
 
     @Override
@@ -62,15 +60,15 @@ public class FinCo implements IFinCo {
     }
 
     @Override
-    public void generateReport(IAccount account) {
-    	
+    public String generateReport(IAccount account) {
+    	return account.generateReport();
     }
 
 
     public static void main(String[] args) {
     	IAccountController acctController = new AccountController();
     	acctController.setDbStore(new DataAccessSubSystem()); //set the database system
-        FinCo finco = new FinCo(acctController);
+        FinCo finco = new FinCo();
         
         String[] dataTableCols = {"AccountNo", "Name", "Type", "Balance"};
         finco.initializeFincoApp(dataTableCols);
@@ -122,8 +120,8 @@ public class FinCo implements IFinCo {
     }
 
     @Override
-    public void depositeMoney(IAccount account, int selectedIndex, double amount) {
-        int ammountColIndex = defaultTableModel.findColumn(getAmountColumnLabel());
+    public void depositeMoney(IAccount account, ITransaction transaction) {
+        /*int ammountColIndex = defaultTableModel.findColumn(getAmountColumnLabel());
         double newamount = (double) defaultTableModel.getValueAt(selectedIndex, ammountColIndex) + amount;
         defaultTableModel.setValueAt(newamount, selectedIndex, ammountColIndex); //put the value in selected row and column
         if (amount < 0 && newamount < 0) {
@@ -132,9 +130,10 @@ public class FinCo implements IFinCo {
                             "No enough money in person account",
                             "Invalid deposit attempt!"
                             , JOptionPane.WARNING_MESSAGE);
-        }
+        }*/
 
         //update the model and the account, push it also into the database
+    	account.deposite(transaction);
 
     }
 
@@ -146,7 +145,7 @@ public class FinCo implements IFinCo {
         this.amountColumnLabel = amountColumnLabel;
     }
 
-    @Override
+    /*@Override
     public void withdrawMoney(IAccount account, int rowIndex, double amountToWithdraw) {
         int ammountColIndex = defaultTableModel.findColumn(getAmountColumnLabel());
         double currentAmount = (double) defaultTableModel.getValueAt(rowIndex, ammountColIndex);
@@ -160,7 +159,7 @@ public class FinCo implements IFinCo {
         } else {
             System.out.println("Not possible");
         }
-    }
+    }*/
     
     public void refreshDataTableRows(){
     	if (defaultTableModel.getRowCount() > 0) {
@@ -174,11 +173,11 @@ public class FinCo implements IFinCo {
 			addRow(account);
     }
 
-	@Override
+	/*@Override
 	public void addCustomer(ICustomer customer) {
 		int accountNumber = accountController.getAccounts().size() + 1;
 //		accountController.createCompanyAccount(, company, accountNumber);
-	}
+	}*/
 
 	public EvaluateFunctor getEvaluateFuctor() {
 		return evaluateFuctor;
@@ -190,15 +189,14 @@ public class FinCo implements IFinCo {
 
 	@Override
 	public void addCompanyAccount(IAccountVisitor accountVisitor, ICompany company, String accountNumber) {
-		// TODO Auto-generated method stub
+		accountController.createCompanyAccount(accountVisitor, company, accountNumber);
 		
 		
 	}
 
 	@Override
 	public void addPersonAccount(IAccountVisitor accountVisitor, IPerson person, String accountNumber) {
-		// TODO Auto-generated method stub
-		
+		accountController.createPersonAccount(accountVisitor, person, accountNumber);	
 	}
 	
 }

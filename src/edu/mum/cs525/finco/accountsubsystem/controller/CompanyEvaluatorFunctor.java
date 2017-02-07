@@ -11,7 +11,7 @@ import edu.mum.cs525.finco.accountsubsystem.model.Transaction;
 public class CompanyEvaluatorFunctor extends EvaluateFunctor {
 
     @Override
-    public boolean evaluateTransactionTemplate(Transaction transaction, Account account) {
+    public boolean evaluateTransactionTemplate(ITransaction transaction, IAccount account) {
         return true;
     }
 }

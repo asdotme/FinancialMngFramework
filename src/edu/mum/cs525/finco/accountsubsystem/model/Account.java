@@ -48,14 +48,14 @@ public class Account implements IAccount{
     }
 
 	@Override
-	public void deposite(Transaction transaction) {
+	public void deposite(ITransaction transaction) {
 		this.accountBalance+=transaction.getTransactionAmount();
 		evaluateTransaction(transaction);
 		transactions.add(transaction);
 	}
 
 	@Override
-	public void withdraw(Transaction transaction) {
+	public void withdraw(ITransaction transaction) {
 		this.accountBalance-=transaction.getTransactionAmount();
 		evaluateTransaction(transaction);
 		transactions.add(transaction);		
@@ -83,7 +83,7 @@ public class Account implements IAccount{
 	}
 	
 	@Override
-	public void evaluateTransaction(Transaction transaction) {
+	public void evaluateTransaction(ITransaction transaction) {
 		// TODO Auto-generated method stub
 		func.evaluateTemplate(transaction, this);
 	}
