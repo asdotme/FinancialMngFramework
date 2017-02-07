@@ -1,47 +1,58 @@
 package edu.mum.cs525.finco.accountsubsystem.model;
 
-/**
- * Created by asme on 2/5/17.
- */
 public  class AccountLogger implements IAccount {
-    IAccount account;
+    private IAccount account;
     public AccountLogger(IAccount account){
         this.account = account;
     }
 
-    @Override
-    public void deposite(ITransaction transaction) {
-        account.deposite(transaction);
-    }
-
-    @Override
-    public void withdraw(ITransaction transaction) {
-
-        account.withdraw(transaction);
-        evaluateTransaction(transaction,account);
-    }
-
-    @Override
-    public void addInterest() {
-        account.addInterest();
-    }
-
-    @Override
-    public void generateAccount() {
-        account.generateAccount();
-    }
-
-    @Override
-    public void evaluateTransaction(ITransaction transaction, IAccount account) {
-        account.evaluateTransaction(transaction, account);
-    }
 
     public void preExecute(){
-
+        System.out.println("Logging");
     }
     public void postExecute(){
 
     }
 
 
+    @Override
+    public void deposite(Transaction transaction) {
+        // TODO Auto-generated method stub
+        account.deposite(transaction);
+        postExecute();
+    }
+
+
+    @Override
+    public void withdraw(Transaction transaction) {
+        // TODO Auto-generated method stub
+        account.withdraw(transaction);
+        postExecute();
+    }
+
+
+    @Override
+    public void addInterest() {
+        // TODO Auto-generated method stub
+        account.addInterest();
+        postExecute();
+    }
+
+
+    @Override
+    public void evaluateTransaction(Transaction transaction) {
+        // TODO Auto-generated method stub
+        account.evaluateTransaction(transaction);
+    }
+
+
+    @Override
+    public String generateReport() {
+        return account.generateReport();
+    }
+
+
 }
+
+
+
