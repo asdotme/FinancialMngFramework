@@ -1,5 +1,8 @@
 package edu.mum.cs525.finco.accountsubsystem.controller;
 
+import edu.mum.cs525.finco.accountsubsystem.model.Account;
+import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
+import edu.mum.cs525.finco.customersubsystem.model.Customer;
 import edu.mum.cs525.finco.customersubsystem.model.ICompany;
 import edu.mum.cs525.finco.customersubsystem.model.IPerson;
 
@@ -8,12 +11,12 @@ import edu.mum.cs525.finco.customersubsystem.model.IPerson;
  */
 public class AccountVisitor implements IAccountVisitor {
     @Override
-    public void createAccount(IPerson iPerson) {
-
+    public IAccount createAccount(IPerson person,String accountNumber) {
+    	return new Account((Customer) person,accountNumber, new PersonEvaluatorFunctor());
     }
 
     @Override
-    public void createAccount(ICompany iCompany) {
-
+    public IAccount createAccount(ICompany company,String accountNumber) {
+    	return new Account((Customer) company,accountNumber, new PersonEvaluatorFunctor());
     }
 }

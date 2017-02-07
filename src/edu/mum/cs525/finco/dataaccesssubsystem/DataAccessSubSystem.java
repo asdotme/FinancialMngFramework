@@ -14,5 +14,12 @@ public class DataAccessSubSystem implements IDataAccessSubSystem {
     public static List<IAccount> getAccounts() {
         return null;
     }
-
+    
+    public static void addAccounts(IAccount account) {
+        accountList.add(account);
+    }
+    
+    public static void addAllAccounts(List<IAccount> accounts) {
+        accountList.addAll(accounts);
+    }
 }

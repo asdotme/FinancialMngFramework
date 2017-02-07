@@ -10,10 +10,10 @@ import java.util.Date;
 import java.util.List;
 
 public interface IAccountController {
-    void createCompanyAccount(IAccountVisitor accountVisitor, ICustomer customer);
-    void depositeMoney(ITransaction transaction);
-    void withdrawMoney(ITransaction transaction);
+    void createCompanyAccount(IAccountVisitor accountVisitor, ICompany company,String accountNumber);
+    void createPersonAccount(IAccountVisitor accountVisitor, IPerson person,String accountNumber);
+    void depositeMoney(ITransaction transaction,IAccount account);
+    void withdrawMoney(ITransaction transaction,IAccount account);
     void addInterest();
-    void generateReport(IAccount account);
-
+    String generateReport(IAccount account);
 }

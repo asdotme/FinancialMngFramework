@@ -1,7 +1,7 @@
 package edu.mum.cs525.finco.customersubsystem.model;
 
 
-public class Company implements ICompany {
+public class Company extends Customer implements ICompany {
 	private Address address;
     private String name;
     private int noOfEmployees;

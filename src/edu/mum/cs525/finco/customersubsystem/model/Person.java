@@ -2,7 +2,7 @@ package edu.mum.cs525.finco.customersubsystem.model;
 
 import java.util.Date;
 
-public class Person implements IPerson{
+public class Person extends Customer implements IPerson{
     private Address address;
     private String name;
     private Date birthDate;
