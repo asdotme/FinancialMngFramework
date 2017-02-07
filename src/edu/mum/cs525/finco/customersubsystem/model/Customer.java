@@ -1,9 +1,14 @@
 package edu.mum.cs525.finco.customersubsystem.model;
 
+import java.util.List;
+
+import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
+
 public class Customer implements ICustomer {
-	private Address address;
+	private IAddress address;
     private String name;
     private String email;
+    private List<IAccount>accountList;
 
     public Customer(String state, String city, String street, String zip, String name, String email) {
 		super();
@@ -25,7 +30,7 @@ public class Customer implements ICustomer {
 		this.email = "";
     }
 
-	public Address getAddress() {
+	public IAddress getAddress() {
 		return address;
 	}
 
@@ -48,4 +53,22 @@ public class Customer implements ICustomer {
 	public void setEmail(String email) {
 		this.email = email;
 }
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	@Override
+	public List<IAccount> getAccountList() {
+		// TODO Auto-generated method stub
+		return accountList;
+	}
+
+	public void setAccountList(List<IAccount> accountList) {
+		this.accountList = accountList;
+	}
+	
+	}
+

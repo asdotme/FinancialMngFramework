@@ -1,6 +1,17 @@
 package edu.mum.cs525.finco.presentation;
 
 import javax.swing.*;
+
+import edu.mum.cs525.finco.IFinCo;
+import edu.mum.cs525.finco.accountsubsystem.controller.CompanyEvaluatorFunctor;
+import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
+import edu.mum.cs525.finco.accountsubsystem.model.Account;
+import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
+import edu.mum.cs525.finco.customersubsystem.model.Address;
+import edu.mum.cs525.finco.customersubsystem.model.Company;
+import edu.mum.cs525.finco.customersubsystem.model.IAddress;
+import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
+
 import java.awt.*;
 
 
@@ -9,8 +20,9 @@ public class JDialog_AddCompAcc extends JDialog
 
 	private static final long serialVersionUID = 4711788845311172871L;
 	private FinCoMainFrame parentframe;
+	private IFinCo finco;
 
-	public JDialog_AddCompAcc(FinCoMainFrame parent)
+	public JDialog_AddCompAcc(FinCoMainFrame parent, IFinCo finco)
 	{
 		super(parent);
 		parentframe=parent;
@@ -138,12 +150,28 @@ public class JDialog_AddCompAcc extends JDialog
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
-		parentframe.accountnr=JTextField_ACNR.getText();
-		parentframe.clientName=JTextField_NAME.getText();
-		parentframe.street=JTextField_STR.getText();
-		parentframe.city=JTextField_CT.getText();
-		parentframe.zip=JTextField_ZIP.getText();
-		parentframe.state=JTextField_ST.getText();
+		String accountNumber=JTextField_ACNR.getText();
+		String name = JTextField_NAME.getText();
+		String street =JTextField_STR.getText();
+		String city =JTextField_CT.getText();
+		String zip=JTextField_ZIP.getText();
+		String state=JTextField_ST.getText();
+		int numberOfEmployee = Integer.valueOf(JTextField_NoOfEmp.getText());
+		String email = JTextField_EM.getText();
+		
+		//create address object
+		//create account object
+		//create customer account
+		IAddress address = new Address(state, city, street, zip); 
+
+		ICustomer customer = new Company(address, name, numberOfEmployee, email);
+		//create an account object
+		
+		IAccount account = new Account();
+		//instantiate company evaluator functor
+		CompanyEvaluatorFunctor functor = new CompanyEvaluatorFunctor();
+		finco.setEvaluateFuctor(functor);
+				//
 		if (JRadioButton_Chk.isSelected())
 			parentframe.accountType="Ch";
 		else

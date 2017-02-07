@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Account implements IAccount{
 
-    private Customer accountOwner;
+    private ICustomer accountOwner;
     
     private String accountNumber;
     
@@ -18,36 +18,33 @@ public class Account implements IAccount{
     
     private double accountInterestRate;
     
-    private EvaluateFunctor evaluateFunctor;
-
 	private List<ITransaction> transactions;
-
-    public Account(Customer accountOwner, String accountNumber,double accountInterestRate,EvaluateFunctor evaluateFunctor,
-			List<ITransaction> transactions) {
+	private EvaluateFunctor func;
+	
+    public Account(ICustomer accountOwner, String accountNumber,double accountInterestRate, EvaluateFunctor evaluateFunctor) {
 		super();
 		this.accountOwner = accountOwner;
 		this.accountNumber = accountNumber;
-		this.transactions = transactions;
+		this.transactions = new ArrayList<>();
 		this.accountInterestRate=accountInterestRate;
-		this.evaluateFunctor=evaluateFunctor;
-		this.accountBalance=0.0;
+		this.accountBalance=0;
+		this.func = evaluateFunctor;
 	}
 
     public Account(Customer accountOwner, String accountNumber, EvaluateFunctor evaluateFunctor) {
 		super();
 		this.accountOwner = accountOwner;
 		this.accountNumber = accountNumber;
-		this.transactions = new ArrayList();
+		this.transactions = new ArrayList<>();
 		this.accountInterestRate=0.0;
 		this.accountBalance=0.0;
-		this.evaluateFunctor=evaluateFunctor;
+		this.func = evaluateFunctor;
 	}
 
 	public Account(){
     	accountOwner=new Customer();
     	accountNumber="";
-    	this.transactions = new ArrayList();
-    	this.evaluateFunctor=null;
+    	this.transactions = new ArrayList<>();
     }
 
 	@Override
@@ -88,7 +85,7 @@ public class Account implements IAccount{
 	@Override
 	public void evaluateTransaction(Transaction transaction) {
 		// TODO Auto-generated method stub
-		this.evaluateFunctor.evaluateTemplate(transaction, this);
+		func.evaluateTemplate(transaction, this);
 	}
 	
 
@@ -129,4 +126,15 @@ public class Account implements IAccount{
 	public void addAccountTransactions(ITransaction transaction) {
 		transactions.add(transaction);
 	}
+
+	public EvaluateFunctor getFunc() {
+		return func;
+	}
+
+	public void setFunc(EvaluateFunctor func) {
+		this.func = func;
+	}
+	
+
+	
 }

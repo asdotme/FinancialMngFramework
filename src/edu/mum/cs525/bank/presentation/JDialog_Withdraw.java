@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import edu.mum.cs525.finco.IFinCo;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
+import edu.mum.cs525.finco.presentation.FinCoMainFrame;
 
 import java.awt.*;
 

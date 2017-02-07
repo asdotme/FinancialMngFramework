@@ -3,11 +3,11 @@ package edu.mum.cs525.finco.accountsubsystem.controller;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 import edu.mum.cs525.finco.accountsubsystem.model.ITransaction;
 import edu.mum.cs525.finco.customersubsystem.model.ICompany;
-import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
 import edu.mum.cs525.finco.customersubsystem.model.IPerson;
+import edu.mum.cs525.finco.dataaccesssubsystem.IDataAccessSubSystem;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface IAccountController {
     void createCompanyAccount(IAccountVisitor accountVisitor, ICompany company,String accountNumber);
@@ -16,4 +16,7 @@ public interface IAccountController {
     void withdrawMoney(ITransaction transaction,IAccount account);
     void addInterest();
     String generateReport(IAccount account);
+    public void setDbStore(IDataAccessSubSystem dbStore);
+    public  List<IAccount> getAccounts();
+    public Optional<IAccount> getAccount(String accountNumber);
 }

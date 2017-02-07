@@ -6,11 +6,16 @@ import edu.mum.cs525.finco.accountsubsystem.model.Transaction;
 import edu.mum.cs525.finco.customersubsystem.model.ICompany;
 import edu.mum.cs525.finco.customersubsystem.model.IPerson;
 import edu.mum.cs525.finco.dataaccesssubsystem.DataAccessSubSystem;
+import edu.mum.cs525.finco.dataaccesssubsystem.IDataAccessSubSystem;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 public class AccountController implements IAccountController {
+	IDataAccessSubSystem dbStore;
+	
+
 	@Override
 	public void createCompanyAccount(IAccountVisitor accountVisitor,ICompany company,String accountNumber) {
 		// TODO Auto-generated method stub
@@ -25,7 +30,7 @@ public class AccountController implements IAccountController {
 
 	@Override
     public void addInterest() {
-        List<IAccount> accountList= DataAccessSubSystem.getAccounts();
+        List<IAccount> accountList= dbStore.getAccountList();
         Iterator<IAccount> accountIterator=accountList.iterator();
         while(accountIterator.hasNext()){
             accountIterator.next().addInterest();
@@ -48,4 +53,33 @@ public class AccountController implements IAccountController {
 		// TODO Auto-generated method stub
 		account.withdraw((Transaction) transaction);
 	}
+
+	public IDataAccessSubSystem getDbStore() {
+		return dbStore;
+	}
+
+	public void setDbStore(IDataAccessSubSystem dbStore) {
+		this.dbStore = dbStore;
+	}
+
+	@Override
+	public List<IAccount> getAccounts() {
+		// TODO Auto-generated method stub
+		return dbStore.getAccountList();
+	}
+
+	@Override
+	public Optional<IAccount> getAccount(String accountNumber) {
+		// TODO Auto-generated method stub
+		Iterator<IAccount>iter = dbStore.getAccountList().iterator();
+		Optional<IAccount> account = null;
+		while(iter.hasNext()){
+			account = Optional.of(iter.next());
+			if(accountNumber.equals(account.get().getAccountNumber())){
+				break;
+			}
+		}
+		return account;
+	}
+	
 }

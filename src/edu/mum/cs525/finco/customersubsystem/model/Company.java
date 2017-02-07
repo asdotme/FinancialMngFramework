@@ -2,7 +2,7 @@ package edu.mum.cs525.finco.customersubsystem.model;
 
 
 public class Company extends Customer implements ICompany {
-	private Address address;
+	private IAddress address;
     private String name;
     private int noOfEmployees;
     private String email;
@@ -15,7 +15,7 @@ public class Company extends Customer implements ICompany {
 		this.email = email;
 	}
 
-	public Company(Address address, String name, int noOfEmployees, String email) {
+	public Company(IAddress address, String name, int noOfEmployees, String email) {
 		super();
 		this.address = address;
 		this.name = name;
@@ -29,14 +29,6 @@ public class Company extends Customer implements ICompany {
 		this.noOfEmployees = 0;
 		this.email = "";
     }
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 
 	public String getName() {
 		return name;
@@ -61,5 +53,14 @@ public class Company extends Customer implements ICompany {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public IAddress getAddress() {
+		return address;
+	}
+
+	public void setAddress(IAddress address) {
+		this.address = address;
+	}
+	
 
 }

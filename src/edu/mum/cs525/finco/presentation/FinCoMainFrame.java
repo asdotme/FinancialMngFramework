@@ -5,6 +5,7 @@ import javax.swing.table.DefaultTableModel;
 
 import edu.mum.cs525.finco.FinCo;
 import edu.mum.cs525.finco.IFinCo;
+import edu.mum.cs525.finco.accountsubsystem.model.Account;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 
 import java.awt.*;
@@ -117,7 +118,7 @@ public class FinCoMainFrame extends JFrame {
 
 			// Create a new instance of our application's frame, and make it
 			// visible.
-			(new FinCoMainFrame(new FinCo())).setVisible(true);
+//			(new FinCoMainFrame(new FinCo())).setVisible(true);
 		} catch (Throwable t) {
 			t.printStackTrace();
 			// Ensure the application exits with an error condition.
@@ -220,7 +221,7 @@ public class FinCoMainFrame extends JFrame {
 		 * show it
 		 */
 
-		JDialog_AddCompAcc pac = new JDialog_AddCompAcc(myframe);
+		JDialog_AddCompAcc pac = new JDialog_AddCompAcc(myframe, finco);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 
@@ -245,7 +246,7 @@ public class FinCoMainFrame extends JFrame {
 //			IAccount account = (IAccount) finco.getDefaultTableModel().getValueAt(selection, 0);
 			System.out.println("finco.getDefaultTableModel().getValueAt(selection, 0)");
 			System.out.println(finco.getDefaultTableModel().getValueAt(selection, 0));
-			JDialog dep = new JDialog_Deposit(this, account, selection, finco);
+			JDialog dep = new JDialog_Deposit(this, new Account(), selection, finco);
 			dep.setBounds(430, 15, 275, 140);
 			dep.setVisible(true);
 		}

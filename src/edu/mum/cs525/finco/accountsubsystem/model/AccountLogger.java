@@ -1,5 +1,7 @@
 package edu.mum.cs525.finco.accountsubsystem.model;
 
+import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
+
 public  class AccountLogger implements IAccount {
     private IAccount account;
     public AccountLogger(IAccount account){
@@ -50,6 +52,27 @@ public  class AccountLogger implements IAccount {
     public String generateReport() {
         return account.generateReport();
     }
+
+
+	@Override
+	public ICustomer getAccountOwner() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public double getAccountBalance() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public String getAccountNumber() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 }
