@@ -11,8 +11,8 @@ import java.util.List;
 
 public interface IAccountController {
     void createCompanyAccount(IAccountVisitor accountVisitor, ICustomer customer);
-    void depositeMoney(IAccount account, ITransaction transaction);
-    void withdrawMoney(IAccount account, ITransaction transaction);
+    void depositeMoney(ITransaction transaction);
+    void withdrawMoney(ITransaction transaction);
     void addInterest();
     void generateReport(IAccount account);
 

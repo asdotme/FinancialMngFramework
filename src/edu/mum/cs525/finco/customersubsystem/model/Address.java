@@ -1,4 +1,4 @@
-package finalproject.model.customer;
+package edu.mum.cs525.finco.customersubsystem.model;
 
 public class Address implements IAddress{
     private String state;

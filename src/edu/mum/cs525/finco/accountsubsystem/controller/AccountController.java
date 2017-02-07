@@ -21,12 +21,12 @@ public class AccountController implements IAccountController {
     }
 
     @Override
-    public void depositeMoney(IAccount account, ITransaction transaction) {
+    public void depositeMoney(ITransaction transaction) {
 
     }
 
     @Override
-    public void withdrawMoney(IAccount account, ITransaction transaction) {
+    public void withdrawMoney(ITransaction transaction) {
 
     }
 
@@ -37,16 +37,11 @@ public class AccountController implements IAccountController {
         while(accountIterator.hasNext()){
             accountIterator.next().addInterest();
         }
-
     }
 
     @Override
     public void generateReport(IAccount account) {
 
-    }
-    private  double calculateInterest(double balance, double interest){
-
-        return 0;
     }
 
 }

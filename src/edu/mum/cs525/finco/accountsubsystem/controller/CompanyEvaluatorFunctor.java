@@ -10,7 +10,6 @@ public class CompanyEvaluatorFunctor extends EvaluateFunctor {
 
     @Override
     public boolean evaluateTransactionTemplate(ITransaction transaction, IAccount account) {
-
         return false;
     }
 }
