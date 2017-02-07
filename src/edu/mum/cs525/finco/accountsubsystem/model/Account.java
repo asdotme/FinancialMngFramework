@@ -1,14 +1,12 @@
-package finalproject.model.account;
+package edu.mum.cs525.finco.accountsubsystem.model;
+
+import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
+import edu.mum.cs525.finco.customersubsystem.model.Customer;
+import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import finalproject.controller.account.EvaluateFunctor;
-import finalproject.model.Transaction.ITransaction;
-import finalproject.model.Transaction.Transaction;
-import finalproject.model.Transaction.TransactionType;
-import finalproject.model.customer.Customer;
-import finalproject.model.customer.ICustomer;
 
 public class Account implements IAccount{
 

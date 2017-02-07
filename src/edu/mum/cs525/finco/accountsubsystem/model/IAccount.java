@@ -1,6 +1,5 @@
-package finalproject.model.account;
+package edu.mum.cs525.finco.accountsubsystem.model;
 
-import finalproject.model.Transaction.Transaction;
 
 public interface IAccount {
     void deposite(Transaction transaction);
