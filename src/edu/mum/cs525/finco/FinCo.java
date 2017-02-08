@@ -20,6 +20,7 @@ import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
 import edu.mum.cs525.finco.customersubsystem.model.IPerson;
 import edu.mum.cs525.finco.dataaccesssubsystem.DataAccessSubSystem;
 import edu.mum.cs525.finco.presentation.FinCoMainFrame;
+import edu.mum.cs525.finco.presentation.Mediator;
 
 /**
  * Created by asme on 2/6/17.
@@ -31,6 +32,7 @@ public class FinCo implements IFinCo {
     protected DefaultTableModel defaultTableModel;
     EvaluateFunctor evaluateFuctor;
     String amountColumnLabel = "Amount";
+    Mediator mediator;
 
     
     public FinCo(IAccountController accountController,ICustomerController customerController) {
@@ -49,6 +51,7 @@ public class FinCo implements IFinCo {
     public void withdrawMoney(IAccount account, ITransaction transaction) {
     	accountController.withdrawMoney(transaction, account);
     	refreshDataTableRows();
+    	mediator.checkOperationState();
     }
 
     @Override
@@ -91,8 +94,11 @@ public class FinCo implements IFinCo {
             e.printStackTrace();
         }
         this.setDefaultTableModel(defaultTableModel);
-        new FinCoMainFrame(this).setVisible(true);
-        ;
+        FinCoMainFrame frame = new FinCoMainFrame(this);
+        mediator = new Mediator(frame);
+        mediator.checkOperationState();
+        frame.setVisible(true);
+        
 
     }
 
@@ -119,6 +125,7 @@ public class FinCo implements IFinCo {
     public void depositeMoney(IAccount account, ITransaction transaction) {
     	accountController.depositeMoney(transaction, account);
     	refreshDataTableRows();
+    	mediator.checkOperationState();
     }
 
     public String getAmountColumnLabel() {
@@ -173,6 +180,12 @@ public class FinCo implements IFinCo {
 		IAccount account=accountController.getAccount(accountNumber);
 		return account;	
 	}
+
+	@Override
+	public void updateUICommands() {
+		mediator.checkOperationState();
+	}
+	
 	
 }
 

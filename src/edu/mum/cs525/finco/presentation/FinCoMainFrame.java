@@ -1,11 +1,11 @@
 package edu.mum.cs525.finco.presentation;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import edu.mum.cs525.finco.FinCo;
 import edu.mum.cs525.finco.IFinCo;
-import edu.mum.cs525.finco.accountsubsystem.model.Account;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 
 import java.awt.*;
@@ -30,6 +30,7 @@ public class FinCoMainFrame extends JFrame {
 	private Object rowdata[];
 	IFinCo finco;
 
+	
 	public FinCoMainFrame(IFinCo finco) {
 		myframe = this;
 		this.finco = finco;
@@ -99,6 +100,14 @@ public class FinCoMainFrame extends JFrame {
 		JButton_Deposit.addActionListener(lSymAction);
 		JButton_Withdraw.addActionListener(lSymAction);
 		JButton_Addinterest.addActionListener(lSymAction);
+		JTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				finco.updateUICommands();
+				
+			}
+		});
 
 	}
 
@@ -276,4 +285,10 @@ public class FinCoMainFrame extends JFrame {
 				"Add interest to all accounts", JOptionPane.WARNING_MESSAGE);
 
 	}
+
+
+	JTable getJTable1() {
+		return JTable1;
+	}
+	
 }

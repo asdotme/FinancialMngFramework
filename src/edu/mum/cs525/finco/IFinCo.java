@@ -25,4 +25,5 @@ public interface IFinCo {
     public void addCustomer(ICustomer customer);*/
     public void setEvaluateFuctor(EvaluateFunctor evaluateFuctor);
     public IAccount getAccountFromAccountNumber(String accountNumber);
+    public void updateUICommands();
 }
