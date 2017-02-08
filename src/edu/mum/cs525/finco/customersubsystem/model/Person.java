@@ -3,7 +3,7 @@ package edu.mum.cs525.finco.customersubsystem.model;
 import java.util.Date;
 
 public class Person extends Customer implements IPerson{
-    private Address address;
+    private IAddress address;
     private String name;
     private Date birthDate;
     private String email;
@@ -16,7 +16,7 @@ public class Person extends Customer implements IPerson{
 		this.email = email;
 	}
 
-	public Person(Address address, String name, Date birthDate, String email) {
+	public Person(IAddress address, String name, Date birthDate, String email) {
 		super();
 		this.address = address;
 		this.name = name;
@@ -31,7 +31,7 @@ public class Person extends Customer implements IPerson{
 		this.email = "";
     }
 
-	public Address getAddress() {
+	public IAddress getAddress() {
 		return address;
 	}
 

@@ -173,6 +173,7 @@ public class FinCo implements IFinCo {
 	@Override
 	public void addPersonAccount(IPerson person, String accountNumber) {
 		accountController.createPersonAccount(new AccountVisitor(), person, accountNumber);	
+		addRow(accountController.getAccount(accountNumber));
 	}
 
 	@Override

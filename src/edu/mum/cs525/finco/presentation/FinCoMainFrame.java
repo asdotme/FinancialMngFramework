@@ -205,22 +205,22 @@ public class FinCoMainFrame extends JFrame {
 		 * it
 		 */
 
-		JDialog_AddPAcc pac = new JDialog_AddPAcc(myframe);
+		JDialog_AddPAcc pac = new JDialog_AddPAcc(myframe, finco);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 
-		if (newaccount) {
-			// add row to table
-			rowdata[0] = accountnr;
-			rowdata[1] = clientName;
-			rowdata[2] = city;
-			rowdata[3] = "P";
-			rowdata[4] = accountType;
-			rowdata[5] = "0";
-			model.addRow(rowdata);
-			JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
-			newaccount = false;
-		}
+//		if (newaccount) {
+//			// add row to table
+//			rowdata[0] = accountnr;
+//			rowdata[1] = clientName;
+//			rowdata[2] = city;
+//			rowdata[3] = "P";
+//			rowdata[4] = accountType;
+//			rowdata[5] = "0";
+//			model.addRow(rowdata);
+//			JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
+//			newaccount = false;
+//		}
 
 	}
 
@@ -283,7 +283,6 @@ public class FinCoMainFrame extends JFrame {
 		finco.addInterest();
 		JOptionPane.showMessageDialog(JButton_Addinterest, "Add interest to all accounts",
 				"Add interest to all accounts", JOptionPane.WARNING_MESSAGE);
-
 	}
 
 

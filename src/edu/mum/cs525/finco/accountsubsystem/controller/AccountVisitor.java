@@ -2,7 +2,6 @@ package edu.mum.cs525.finco.accountsubsystem.controller;
 
 import edu.mum.cs525.finco.accountsubsystem.model.Account;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
-import edu.mum.cs525.finco.customersubsystem.model.Customer;
 import edu.mum.cs525.finco.customersubsystem.model.ICompany;
 import edu.mum.cs525.finco.customersubsystem.model.IPerson;
 
