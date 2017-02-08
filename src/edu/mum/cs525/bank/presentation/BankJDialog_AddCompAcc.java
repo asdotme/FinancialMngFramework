@@ -71,7 +71,7 @@ public class BankJDialog_AddCompAcc extends FinCoAddCompanyAccountDialog
 //			finco.setAccountVisitor(new SavingAccountVisitor());
 
 		finco.addCompanyAccount(visitor,company, accountNumber);
-
+		dispose();
 	}
 
 
