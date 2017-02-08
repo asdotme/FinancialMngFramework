@@ -26,4 +26,6 @@ public interface IFinCo {
     public void setEvaluateFuctor(EvaluateFunctor evaluateFuctor);
     public IAccount getAccountFromAccountNumber(String accountNumber);
     public void updateUICommands();
+    public IAccountVisitor getAccountVisitor();
+    public void setAccountVisitor(IAccountVisitor accountVisitor);
 }

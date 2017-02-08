@@ -18,4 +18,11 @@ public class CheckingBankAccount extends Account {
     public CheckingBankAccount() {
     }
 
+	@Override
+	public String getAccountType() {
+		// TODO Auto-generated method stub
+		return "Ch";
+	}
+
+    
 }

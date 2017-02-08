@@ -19,4 +19,11 @@ public class SavingBankAccount extends Account {
 
     public SavingBankAccount() {
     }
+
+	@Override
+	public String getAccountType() {
+		// TODO Auto-generated method stub
+		return "S";
+	}
+    
 }

@@ -8,9 +8,7 @@ import javax.swing.*;
 
 import edu.mum.cs525.finco.IFinCo;
 import edu.mum.cs525.finco.customersubsystem.model.Address;
-import edu.mum.cs525.finco.customersubsystem.model.Company;
 import edu.mum.cs525.finco.customersubsystem.model.IAddress;
-import edu.mum.cs525.finco.customersubsystem.model.ICompany;
 import edu.mum.cs525.finco.customersubsystem.model.IPerson;
 import edu.mum.cs525.finco.customersubsystem.model.Person;
 
@@ -23,7 +21,7 @@ public class FinCoJDialog_AddPAcc extends JDialog
 {
 	private static final long serialVersionUID = -3120942598423814741L;
 	private FinCoMainFrame parentframe;
-	IFinCo finco;
+	protected IFinCo finco;
 	public FinCoJDialog_AddPAcc(FinCoMainFrame parent, IFinCo finco)
 	{
 		super(parent);
@@ -36,7 +34,7 @@ public class FinCoJDialog_AddPAcc extends JDialog
 		// what Visual Cafe can generate, or Visual Cafe may be unable to back
 		// parse your Java file into its visual environment.
 		//{{INIT_CONTROLS
-		setTitle("Add personal accountsubsystem");
+		setTitle("Add new personal account");
 		setModal(true);
 		getContentPane().setLayout(null);
 		setSize(283,303);
@@ -131,16 +129,16 @@ public class FinCoJDialog_AddPAcc extends JDialog
 	JLabel JLabel5 = new JLabel();
 	JLabel JLabel6 = new JLabel();
 	JLabel JLabel7 = new JLabel();
-	JTextField JTextField_NAME = new JTextField();
-	JTextField JTextField_CT = new JTextField();
-	JTextField JTextField_ST = new JTextField();
-	JTextField JTextField_STR = new JTextField();
-	JTextField JTextField_ZIP = new JTextField();
-	JTextField JTextField_BD = new JTextField();
-	JTextField JTextField_EM = new JTextField();
+	protected JTextField JTextField_NAME = new JTextField();
+	protected JTextField JTextField_CT = new JTextField();
+	protected JTextField JTextField_ST = new JTextField();
+	protected JTextField JTextField_STR = new JTextField();
+	protected JTextField JTextField_ZIP = new JTextField();
+	protected JTextField JTextField_BD = new JTextField();
+	protected JTextField JTextField_EM = new JTextField();
 	JButton JButton_OK = new JButton();
 	JButton JButton_Cancel = new JButton();
-	JTextField JTextField_ACNR = new JTextField();
+	protected JTextField JTextField_ACNR = new JTextField();
 	JLabel JLabel8 = new JLabel();
 	//}}
 
@@ -186,7 +184,7 @@ public class FinCoJDialog_AddPAcc extends JDialog
 		}
 	}
 
-	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
+	protected void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		String accountNumber =JTextField_ACNR.getText();
 		String name =JTextField_NAME.getText();

@@ -34,7 +34,7 @@ public class FinCoJDialog_Withdraw extends JDialog {
 		// what Visual Cafe can generate, or Visual Cafe may be unable to back
 		// parse your Java file into its visual environment.
 		System.out.println("Account number is: " + accountNumber);
-		setTitle("Withdraw");
+		setTitle("Withdraw form");
 		setModal(true);
 		getContentPane().setLayout(null);
 		setSize(277, 134);

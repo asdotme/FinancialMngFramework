@@ -10,6 +10,7 @@ import edu.mum.cs525.finco.accountsubsystem.controller.AccountController;
 import edu.mum.cs525.finco.accountsubsystem.controller.AccountVisitor;
 import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
 import edu.mum.cs525.finco.accountsubsystem.controller.IAccountController;
+import edu.mum.cs525.finco.accountsubsystem.controller.IAccountVisitor;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 import edu.mum.cs525.finco.accountsubsystem.model.ITransaction;
 import edu.mum.cs525.finco.customersubsystem.controller.CustomerController;
@@ -30,6 +31,7 @@ public class FinCo implements IFinCo {
     protected IAccountController accountController;
     protected ICustomerController customerController;
     protected DefaultTableModel defaultTableModel;
+    protected IAccountVisitor accountVisitor;
     EvaluateFunctor evaluateFuctor;
     String amountColumnLabel = "Amount";
     Mediator mediator;
@@ -70,6 +72,7 @@ public class FinCo implements IFinCo {
     	IAccountController acctController = new AccountController();
     	acctController.setDbStore(new DataAccessSubSystem()); //set the database system
         FinCo finco = new FinCo();
+        finco.setAccountVisitor(new AccountVisitor()); //set default account visitor
         
         String[] dataTableCols = {"AccountNo", "Name", "Type", "Balance"};
         finco.initializeFincoApp(dataTableCols, "FinCo application");
@@ -166,7 +169,7 @@ public class FinCo implements IFinCo {
 
 	@Override
 	public void addCompanyAccount(ICompany company, String accountNumber) {
-		accountController.createCompanyAccount(new AccountVisitor(), company, accountNumber);
+		accountController.createCompanyAccount(accountVisitor, company, accountNumber);
 		addRow(accountController.getAccount(accountNumber));
 	
 	}
@@ -187,6 +190,16 @@ public class FinCo implements IFinCo {
 	public void updateUICommands() {
 		mediator.checkOperationState();
 	}
+
+	public IAccountVisitor getAccountVisitor() {
+		return accountVisitor;
+	}
+
+	public void setAccountVisitor(IAccountVisitor accountVisitor) {
+		this.accountVisitor = accountVisitor;
+	}
+	
+	
 	
 	
 }

@@ -184,17 +184,17 @@ public class CCard extends FinCo {
 		this.evaluateFuctor = evaluateFuctor;
 	}
 
-	@Override
-	public void addCompanyAccount(IAccountVisitor accountVisitor, ICompany company, String accountNumber) {
-		accountController.createCompanyAccount(accountVisitor, company, accountNumber);
-		
-		
-	}
-
-	@Override
-	public void addPersonAccount(IAccountVisitor accountVisitor, IPerson person, String accountNumber) {
-		accountController.createPersonAccount(accountVisitor, person, accountNumber);	
-	}
+//	@Override
+//	public void addCompanyAccount(IAccountVisitor accountVisitor, ICompany company, String accountNumber) {
+//		accountController.createCompanyAccount(accountVisitor, company, accountNumber);
+//		
+//		
+//	}
+//
+//	@Override
+//	public void addPersonAccount(IAccountVisitor accountVisitor, IPerson person, String accountNumber) {
+//		accountController.createPersonAccount(accountVisitor, person, accountNumber);	
+//	}
 	
 }
 

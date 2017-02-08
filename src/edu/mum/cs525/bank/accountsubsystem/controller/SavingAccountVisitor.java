@@ -1,6 +1,5 @@
 package edu.mum.cs525.bank.accountsubsystem.controller;
 
-import edu.mum.cs525.bank.accountsubsystem.model.CheckingBankAccount;
 import edu.mum.cs525.bank.accountsubsystem.model.SavingBankAccount;
 import edu.mum.cs525.finco.accountsubsystem.controller.AccountVisitor;
 import edu.mum.cs525.finco.accountsubsystem.controller.CompanyEvaluatorFunctor;

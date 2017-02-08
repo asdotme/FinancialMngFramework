@@ -22,7 +22,7 @@ public class FinCoJDialog_AddCompAcc extends JDialog
 
 	private static final long serialVersionUID = 4711788845311172871L;
 	private FinCoMainFrame parentframe;
-	private IFinCo finco;
+	protected IFinCo finco;
 
 	public FinCoJDialog_AddCompAcc(FinCoMainFrame parent, IFinCo finco)
 	{
@@ -35,19 +35,19 @@ public class FinCoJDialog_AddCompAcc extends JDialog
 		// what Visual Cafe can generate, or Visual Cafe may be unable to back
 		// parse your Java file into its visual environment.
 		//{{INIT_CONTROLS
-		setTitle("Add compamy accountsubsystem");
+		setTitle("Add new company form");
 		setModal(true);
 		getContentPane().setLayout(null);
 		setSize(298,339);
 		setVisible(false);
-		JRadioButton_Chk.setText("Checkings");
-		JRadioButton_Chk.setActionCommand("Checkings");
-		getContentPane().add(JRadioButton_Chk);
-		JRadioButton_Chk.setBounds(36,12,84,24);
-		JRadioButton_Sav.setText("Savings");
-		JRadioButton_Sav.setActionCommand("Savings");
-		getContentPane().add(JRadioButton_Sav);
-		JRadioButton_Sav.setBounds(36,36,84,24);
+//		JRadioButton_Chk.setText("Checkings");
+//		JRadioButton_Chk.setActionCommand("Checkings");
+//		getContentPane().add(JRadioButton_Chk);
+//		JRadioButton_Chk.setBounds(36,12,84,24);
+//		JRadioButton_Sav.setText("Savings");
+//		JRadioButton_Sav.setActionCommand("Savings");
+//		getContentPane().add(JRadioButton_Sav);
+//		JRadioButton_Sav.setBounds(36,36,84,24);
 		JLabel1.setText("Name");
 		getContentPane().add(JLabel1);
 		JLabel1.setForeground(Color.black);
@@ -115,8 +115,8 @@ public class FinCoJDialog_AddCompAcc extends JDialog
 
 
 	//{{DECLARE_CONTROLS
-	JRadioButton JRadioButton_Chk = new JRadioButton();
-	JRadioButton JRadioButton_Sav = new JRadioButton();
+//	JRadioButton JRadioButton_Chk = new JRadioButton();
+//	JRadioButton JRadioButton_Sav = new JRadioButton();
 	JLabel JLabel1 = new JLabel();
 	JLabel JLabel2 = new JLabel();
 	JLabel JLabel3 = new JLabel();
@@ -124,17 +124,17 @@ public class FinCoJDialog_AddCompAcc extends JDialog
 	JLabel JLabel5 = new JLabel();
 	JLabel JLabel6 = new JLabel();
 	JLabel JLabel7 = new JLabel();
-	JTextField JTextField_NAME = new JTextField();
-	JTextField JTextField_CT = new JTextField();
-	JTextField JTextField_ST = new JTextField();
-	JTextField JTextField_STR = new JTextField();
-	JTextField JTextField_ZIP = new JTextField();
-	JTextField JTextField_NoOfEmp = new JTextField();
-	JTextField JTextField_EM = new JTextField();
+	protected JTextField JTextField_NAME = new JTextField();
+	protected JTextField JTextField_CT = new JTextField();
+	protected JTextField JTextField_ST = new JTextField();
+	protected JTextField JTextField_STR = new JTextField();
+	protected JTextField JTextField_ZIP = new JTextField();
+	protected JTextField JTextField_NoOfEmp = new JTextField();
+	protected JTextField JTextField_EM = new JTextField();
 	JButton JButton_OK = new JButton();
 	JButton JButton_Calcel = new JButton();
 	JLabel JLabel8 = new JLabel();
-	JTextField JTextField_ACNR = new JTextField();
+	protected JTextField JTextField_ACNR = new JTextField();
 	//}}
 
 
@@ -150,7 +150,7 @@ public class FinCoJDialog_AddCompAcc extends JDialog
 		}
 	}
 
-	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
+	protected void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		String accountNumber=JTextField_ACNR.getText();
 		String name = JTextField_NAME.getText();
@@ -161,20 +161,13 @@ public class FinCoJDialog_AddCompAcc extends JDialog
 		int numberOfEmployee = Integer.valueOf(JTextField_NoOfEmp.getText());
 		String email = JTextField_EM.getText();
 		
-		//create address object
-		//create account object
-		//create customer account
 		IAddress address = new Address(state, city, street, zip); 
 
 		ICompany customer = new Company(address, name, numberOfEmployee, email);
-		//create an account object
 		customer.setAddress(address);
 		
 		finco.addCompanyAccount(customer, accountNumber);
-		//instantiate company evaluator functor
-		//CompanyEvaluatorFunctor functor = new CompanyEvaluatorFunctor();
-//		finco.setEvaluateFuctor(functor);
-		//
+		
 	
 		dispose();
 	}

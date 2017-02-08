@@ -34,7 +34,7 @@ public class FinCoMainFrame extends JFrame {
 	public FinCoMainFrame(IFinCo finco) {
 		myframe = this;
 		this.finco = finco;
-		setTitle("Bank Application.");
+		setTitle("FinCo Enterprise");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		setSize(575, 310);
@@ -198,7 +198,7 @@ public class FinCoMainFrame extends JFrame {
 		System.exit(0);
 	}
 
-	void JButtonPerAC_actionPerformed(ActionEvent event) {
+	protected void JButtonPerAC_actionPerformed(ActionEvent event) {
 		/*
 		 * JDialog_AddPAcc type object is for adding personal information
 		 * construct a JDialog_AddPAcc type object set the boundaries and show
@@ -224,7 +224,7 @@ public class FinCoMainFrame extends JFrame {
 
 	}
 
-	void JButtonCompAC_actionPerformed(ActionEvent event) {
+	protected void JButtonCompAC_actionPerformed(ActionEvent event) {
 		/*
 		 * construct a JDialog_AddCompAcc type object set the boundaries and
 		 * show it
@@ -249,7 +249,7 @@ public class FinCoMainFrame extends JFrame {
 
 	}
 
-	void JButtonDeposit_actionPerformed(ActionEvent event) {
+	protected void JButtonDeposit_actionPerformed(ActionEvent event) {
 		int selection = JTable1.getSelectionModel().getMinSelectionIndex(); // get
 																			// the
 																			// row
@@ -263,7 +263,7 @@ public class FinCoMainFrame extends JFrame {
 
 	}
 
-	void JButtonWithdraw_actionPerformed(ActionEvent event) {
+	protected void JButtonWithdraw_actionPerformed(ActionEvent event) {
 		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
 		if (selection >= 0) {
 			IAccount account = (IAccount) finco.getDefaultTableModel().getValueAt(selection, 0);
