@@ -26,7 +26,7 @@ public class Account implements IAccount{
 		this.accountOwner = accountOwner;
 		this.accountNumber = accountNumber;
 		this.transactions = new ArrayList<>();
-		this.accountInterestRate=accountInterestRate;
+		this.accountInterestRate=0.25;
 		this.accountBalance=0;
 		this.func = evaluateFunctor;
 	}
@@ -133,6 +133,11 @@ public class Account implements IAccount{
 
 	public void setFunc(EvaluateFunctor func) {
 		this.func = func;
+	}
+
+	@Override
+	public String toString() {
+		return accountNumber;
 	}
 	
 

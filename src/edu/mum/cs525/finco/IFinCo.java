@@ -14,8 +14,8 @@ import edu.mum.cs525.finco.customersubsystem.model.IPerson;
  * Created by asme on 2/6/17.
  */
 public interface IFinCo {
-    public void addCompanyAccount(IAccountVisitor accountVisitor, ICompany company,String accountNumber);
-    public void addPersonAccount(IAccountVisitor accountVisitor, IPerson person,String accountNumber);
+    public void addCompanyAccount(ICompany company,String accountNumber);
+    public void addPersonAccount(IPerson person,String accountNumber);
     public void depositeMoney(IAccount account, ITransaction transaction);
     public void withdrawMoney(IAccount account, ITransaction transaction);
     public void addInterest();

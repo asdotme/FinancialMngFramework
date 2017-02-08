@@ -1,18 +1,15 @@
 package edu.mum.cs525.finco;
 
 import java.util.List;
-import java.util.Optional;
 
-import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
 import edu.mum.cs525.finco.accountsubsystem.controller.AccountController;
-import edu.mum.cs525.finco.accountsubsystem.controller.CompanyEvaluatorFunctor;
+import edu.mum.cs525.finco.accountsubsystem.controller.AccountVisitor;
 import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
 import edu.mum.cs525.finco.accountsubsystem.controller.IAccountController;
-import edu.mum.cs525.finco.accountsubsystem.controller.IAccountVisitor;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 import edu.mum.cs525.finco.accountsubsystem.model.ITransaction;
 import edu.mum.cs525.finco.customersubsystem.controller.CustomerController;
@@ -22,7 +19,6 @@ import edu.mum.cs525.finco.customersubsystem.model.ICompany;
 import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
 import edu.mum.cs525.finco.customersubsystem.model.IPerson;
 import edu.mum.cs525.finco.dataaccesssubsystem.DataAccessSubSystem;
-import edu.mum.cs525.finco.dataaccesssubsystem.IDataAccessSubSystem;
 import edu.mum.cs525.finco.presentation.FinCoMainFrame;
 
 /**
@@ -52,7 +48,7 @@ public class FinCo implements IFinCo {
     @Override
     public void withdrawMoney(IAccount account, ITransaction transaction) {
     	accountController.withdrawMoney(transaction, account);
-       // account.withdraw(transaction);
+    	refreshDataTableRows();
     }
 
     @Override
@@ -114,33 +110,15 @@ public class FinCo implements IFinCo {
 		Object rowdata[] = new Object[defaultTableModel.getColumnCount()];
 		rowdata[0] = account;
 		rowdata[1] = customer.getName();
-		rowdata[2] = address.getCity();
-		rowdata[3] = customer.getType();
-		// rowdata[4] = accountType;
-		rowdata[4] = account.getAccountBalance();
+		rowdata[2] = customer.getType();
+		rowdata[3] = account.getAccountBalance();
 		defaultTableModel.addRow(rowdata);
     }
 
     @Override
     public void depositeMoney(IAccount account, ITransaction transaction) {
     	accountController.depositeMoney(transaction, account);
-        /*int ammountColIndex = defaultTableModel.findColumn(getAmountColumnLabel());
-        double newamount = (double) defaultTableModel.getValueAt(selectedIndex, ammountColIndex) + amount;
-        defaultTableModel.setValueAt(newamount, selectedIndex, ammountColIndex); //put the value in selected row and column
-        if (amount < 0 && newamount < 0) {
-            JOptionPane
-                    .showMessageDialog(null,
-                            "No enough money in person account",
-                            "Invalid deposit attempt!"
-                            , JOptionPane.WARNING_MESSAGE);
-        }*/
-
-        //update the model and the account, push it also into the database
-
-
-    	account.deposite(transaction);
-
-
+    	refreshDataTableRows();
     }
 
     public String getAmountColumnLabel() {
@@ -151,21 +129,6 @@ public class FinCo implements IFinCo {
         this.amountColumnLabel = amountColumnLabel;
     }
 
-    /*@Override
-    public void withdrawMoney(IAccount account, int rowIndex, double amountToWithdraw) {
-        int ammountColIndex = defaultTableModel.findColumn(getAmountColumnLabel());
-        double currentAmount = (double) defaultTableModel.getValueAt(rowIndex, ammountColIndex);
-
-        if (currentAmount < amountToWithdraw) {
-            JOptionPane
-                    .showMessageDialog(null,
-                            "No enough money to make this withdraw",
-                            "Insufficient balance!"
-                            , JOptionPane.WARNING_MESSAGE);
-        } else {
-            System.out.println("Not possible");
-        }
-    }*/
     
     public void refreshDataTableRows(){
     	if (defaultTableModel.getRowCount() > 0) {
@@ -194,23 +157,21 @@ public class FinCo implements IFinCo {
 	}
 
 	@Override
-	public void addCompanyAccount(IAccountVisitor accountVisitor, ICompany company, String accountNumber) {
-		accountController.createCompanyAccount(accountVisitor, company, accountNumber);
-		
-		
+	public void addCompanyAccount(ICompany company, String accountNumber) {
+		accountController.createCompanyAccount(new AccountVisitor(), company, accountNumber);
+		addRow(accountController.getAccount(accountNumber));
+	
 	}
 
 	@Override
-	public void addPersonAccount(IAccountVisitor accountVisitor, IPerson person, String accountNumber) {
-		accountController.createPersonAccount(accountVisitor, person, accountNumber);	
+	public void addPersonAccount(IPerson person, String accountNumber) {
+		accountController.createPersonAccount(new AccountVisitor(), person, accountNumber);	
 	}
 
 	@Override
 	public IAccount getAccountFromAccountNumber(String accountNumber) {
 		IAccount account=accountController.getAccount(accountNumber);
-		return account;
-		
-			
+		return account;	
 	}
 	
 }

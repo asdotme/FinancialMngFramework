@@ -16,16 +16,21 @@ import java.util.Optional;
 public class AccountController implements IAccountController {
 	IDataAccessSubSystem dbStore;
 	
+	
+	public AccountController() {
+		super();
+		dbStore = new DataAccessSubSystem();
+	}
 
 	@Override
 	public void createCompanyAccount(IAccountVisitor accountVisitor,ICompany company,String accountNumber) {
 		// TODO Auto-generated method stub
-		accountVisitor.createAccount(company,accountNumber);
+		dbStore.addAccounts(accountVisitor.createAccount(company,accountNumber));
 	}
 
 	@Override
 	public void createPersonAccount(IAccountVisitor accountVisitor,	IPerson person,String accountNumber) {
-		accountVisitor.createAccount(person,accountNumber);
+		dbStore.addAccounts(accountVisitor.createAccount(person,accountNumber));
 		
 	}
 
