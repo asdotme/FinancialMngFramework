@@ -24,15 +24,14 @@ public class FinCoMainFrame extends JFrame {
 	String accountnr, clientName, street, city, zip, state, accountType, clientType, amountDeposit;
 	boolean newaccount;
 	private DefaultTableModel model;
-	private JTable JTable1;
+	JTable JTable1;
 	private JScrollPane JScrollPane1;
 	protected FinCoMainFrame myframe;
 	private Object rowdata[];
-	IFinCo finco;
+	protected IFinCo finco;
 
 	
 	public FinCoMainFrame(IFinCo finco) {
-		myframe = this;
 		this.finco = finco;
 		setTitle("FinCo Enterprise");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -50,7 +49,7 @@ public class FinCoMainFrame extends JFrame {
 		JScrollPane1 = new JScrollPane();
 		// model = new DefaultTableModel();
 		model = finco.getDefaultTableModel();
-		JTable1 = new JTable(model);
+		JTable1 = new JTable();
 		// model.addColumn("AccountNr");
 		// model.addColumn("Name");
 		// model.addColumn("City");
@@ -108,6 +107,8 @@ public class FinCoMainFrame extends JFrame {
 				
 			}
 		});
+		
+		
 
 	}
 
@@ -115,7 +116,7 @@ public class FinCoMainFrame extends JFrame {
 	 * The entry point for this application. Sets the Look and Feel to the
 	 * System Look and Feel. Creates a new JFrame1 and makes it visible.
 	 *****************************************************/
-	static public void main(String args[]) {
+/*	static public void main(String args[]) {
 		try {
 			// Add the following code if you want the Look and Feel
 			// to be set to the Look and Feel of the native system.
@@ -133,11 +134,11 @@ public class FinCoMainFrame extends JFrame {
 			// Ensure the application exits with an error condition.
 			System.exit(1);
 		}
-	}
+	}*/
 
 	protected JPanel JPanel1 = new JPanel();
 	JButton JButton_PerAC = new JButton();
-	JButton JButton_CompAC = new JButton();
+	protected JButton JButton_CompAC = new JButton();
 	protected JButton JButton_Deposit = new JButton();
 	protected JButton JButton_Withdraw = new JButton();
 	JButton JButton_Addinterest = new JButton();
@@ -259,8 +260,18 @@ public class FinCoMainFrame extends JFrame {
 	}
 
 
-	JTable getJTable1() {
+	public JTable getJTable1() {
 		return JTable1;
 	}
+	
+
+	public IFinCo getFinco() {
+		return finco;
+	}
+
+	public void setFinco(IFinCo finco) {
+		this.finco = finco;
+	}
+	
 	
 }

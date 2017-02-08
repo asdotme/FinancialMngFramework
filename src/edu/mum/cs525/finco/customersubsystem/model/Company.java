@@ -61,6 +61,13 @@ public class Company extends Customer implements ICompany {
 	public void setAddress(IAddress address) {
 		this.address = address;
 	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "C";
+	}
+	
 	
 
 }

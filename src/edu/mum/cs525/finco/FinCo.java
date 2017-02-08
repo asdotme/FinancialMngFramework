@@ -2,8 +2,6 @@ package edu.mum.cs525.finco;
 
 import java.util.List;
 
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
 import edu.mum.cs525.finco.accountsubsystem.controller.AccountController;
@@ -74,31 +72,21 @@ public class FinCo implements IFinCo {
         FinCo finco = new FinCo();
         finco.setAccountVisitor(new AccountVisitor()); //set default account visitor
         
-        String[] dataTableCols = {"AccountNo", "Name", "Type", "Balance"};
-        finco.initializeFincoApp(dataTableCols, "FinCo application");
+        String[] dataTableCols = {"AccountNo", "Name", "P/C", "Account type", "Balance"};
+        finco.initializeFincoApp(dataTableCols, new FinCoMainFrame(finco), "FinCo application");
 
     }
 
-    protected void initializeFincoApp(String[] dataTableCols, String applicationTitle) {
+    protected void initializeFincoApp(String[] dataTableCols, FinCoMainFrame frame, String applicationTitle) {
         //initialize defaultdatatablecolumn
         defaultTableModel = new DefaultTableModel();
         for (String colName : dataTableCols) {
             defaultTableModel.addColumn(colName);
         }
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
+
         this.setDefaultTableModel(defaultTableModel);
-        FinCoMainFrame frame = new FinCoMainFrame(this);
         frame.setTitle(applicationTitle);
+        frame.getJTable1().setModel(defaultTableModel);
         mediator = new Mediator(frame);
         mediator.checkOperationState();
         frame.setVisible(true);
@@ -121,7 +109,8 @@ public class FinCo implements IFinCo {
 		rowdata[0] = account;
 		rowdata[1] = customer.getName();
 		rowdata[2] = customer.getType();
-		rowdata[3] = account.getAccountBalance();
+		rowdata[3] = "Account";
+		rowdata[4] = account.getAccountBalance();
 		defaultTableModel.addRow(rowdata);
     }
 
@@ -176,7 +165,7 @@ public class FinCo implements IFinCo {
 
 	@Override
 	public void addPersonAccount(IPerson person, String accountNumber) {
-		accountController.createPersonAccount(new AccountVisitor(), person, accountNumber);	
+		accountController.createPersonAccount(accountVisitor, person, accountNumber);	
 		addRow(accountController.getAccount(accountNumber));
 	}
 

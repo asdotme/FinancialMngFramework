@@ -82,6 +82,13 @@ public  class AccountLogger implements IAccount {
 	}
 
 
+	@Override
+	public void setAccountType(String accountType) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }
 
 

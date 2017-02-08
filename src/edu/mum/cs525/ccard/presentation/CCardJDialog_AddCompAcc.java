@@ -7,7 +7,9 @@ import javax.swing.*;
 
 public class CCardJDialog_AddCompAcc extends JDialog
 {
-    private CardFrm parentframe;
+
+	private static final long serialVersionUID = -1199468993660583170L;
+	private CardFrm parentframe;
     
 	public CCardJDialog_AddCompAcc(CardFrm parent)
 	{

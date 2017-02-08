@@ -1,5 +1,6 @@
 package edu.mum.cs525.bank;
 
+import edu.mum.cs525.bank.presentation.BankFrm;
 import edu.mum.cs525.finco.FinCo;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 import edu.mum.cs525.finco.customersubsystem.model.IAddress;
@@ -15,8 +16,8 @@ public class Bank extends FinCo {
 
     public static void main(String[] args) {
         Bank bank = new Bank();
-        String[] dataTableCols = {"AccountNo", "Name", "city", "P/C", "Ch/s","Amount"};
-        bank.initializeFincoApp(dataTableCols, "Bank system");
+        String[] dataTableCols = {"AccountNo", "Name", "city", "P/C", "Type","Amount"};
+        bank.initializeFincoApp(dataTableCols, new BankFrm(bank), "Bank system");
 
     }
 
@@ -40,6 +41,7 @@ public class Bank extends FinCo {
 		rowdata[5] = account.getAccountBalance();
 		defaultTableModel.addRow(rowdata);
     }
+    
 }
 
 

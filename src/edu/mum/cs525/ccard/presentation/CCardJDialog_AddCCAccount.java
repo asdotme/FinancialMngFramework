@@ -8,8 +8,6 @@ import java.util.Date;
 
 import javax.swing.*;
 
-import edu.mum.cs525.bank.accountsubsystem.controller.CheckingAccountVisitor;
-import edu.mum.cs525.bank.accountsubsystem.controller.SavingAccountVisitor;
 import edu.mum.cs525.ccard.accountsubsystem.controller.BronzeCCardAccountVisitor;
 import edu.mum.cs525.ccard.accountsubsystem.controller.GoldCCardAccountVisitor;
 import edu.mum.cs525.ccard.accountsubsystem.controller.SilverCCardAccountVistor;
@@ -56,10 +54,11 @@ public class CCardJDialog_AddCCAccount extends FinCoJDialog_AddPAcc
 		expireDateLabel.setText("Exp Date");
 		getContentPane().add(expireDateLabel);
 		expireDateLabel.setForeground(java.awt.Color.black);
-		expireDateLabel.setBounds(12, 260, 48, 24);
+		expireDateLabel.setBounds(12,228,48,24);
 		
 		getContentPane().add(JTextField_ExpireDate);
-		JTextField_ExpireDate.setBounds(84, 260, 156, 20);
+		JTextField_ExpireDate.setBounds(84,228,156,20);
+		JTextField_ExpireDate.setText("7-Jun-1990");
 
 	}
 
@@ -88,13 +87,14 @@ public class CCardJDialog_AddCCAccount extends FinCoJDialog_AddPAcc
 		String city = JTextField_CT.getText();
 		String zip=JTextField_ZIP.getText();
 		String state=JTextField_ST.getText();
-		String birthDate = JTextField_BD.getText();
+//		String birthDate = JTextField_BD.getText();
 		String email = JTextField_EM.getText();
+		String expireDate = JTextField_ExpireDate.getText();
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 		Date date = null;
 		try {
-			date = formatter.parse(birthDate);
+			date = formatter.parse(expireDate);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -104,7 +104,7 @@ public class CCardJDialog_AddCCAccount extends FinCoJDialog_AddPAcc
         
 		IAddress address = new Address(state, city, street, zip); 
 
-		IPerson person = new Person(address, name, date, email);
+		IPerson person = new Person(address, name, null, email);
 		person.setAddress(address);
 		
 		if(JRadioButton_Gold.isSelected())
@@ -117,9 +117,4 @@ public class CCardJDialog_AddCCAccount extends FinCoJDialog_AddPAcc
        dispose();
 	}
 
-	void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event)
-	{
-    //make this frame invisible if Cancel button is clicked
-        dispose();
-	}
 }
