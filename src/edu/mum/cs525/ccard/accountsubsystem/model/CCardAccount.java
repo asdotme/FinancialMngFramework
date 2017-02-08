@@ -3,7 +3,6 @@ package edu.mum.cs525.ccard.accountsubsystem.model;
 import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
 import edu.mum.cs525.finco.accountsubsystem.model.Account;
 import edu.mum.cs525.finco.accountsubsystem.model.ITransaction;
-import edu.mum.cs525.finco.accountsubsystem.model.Transaction;
 import edu.mum.cs525.finco.accountsubsystem.model.TransactionType;
 import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
 
@@ -13,12 +12,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by asme on 2/7/17.
- */
-public abstract class CCardAccount extends Account {
+public abstract class CCardAccount extends Account implements ICCardAccount {
     private double minimumPayment;
     private double previousBalance=0.0;
+    private Date expireDate;
 
 
     public CCardAccount(ICustomer accountOwner, String accountNumber, double accountInterestRate, EvaluateFunctor evaluateFunctor) {
@@ -72,5 +69,12 @@ public abstract class CCardAccount extends Account {
 
         return report.toString();
     }
+	public Date getExpireDate() {
+		return expireDate;
+	}
+	public void setExpireDate(Date expireDate) {
+		this.expireDate = expireDate;
+	}
+    
 }
 

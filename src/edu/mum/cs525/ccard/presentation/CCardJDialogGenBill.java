@@ -5,11 +5,15 @@ package edu.mum.cs525.ccard.presentation;/*
 import java.awt.*;
 import javax.swing.*;
 
-public class JDialogGenBill extends JDialog
+public class CCardJDialogGenBill extends JDialog
 {
-    String billstring;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7762025157796383400L;
+	String billstring;
     
-	public JDialogGenBill(Frame parent)
+	public CCardJDialogGenBill(Frame parent)
 	{
 		super(parent);
 		
@@ -61,7 +65,7 @@ public class JDialogGenBill extends JDialog
 		//}}
 	}
 
-	public JDialogGenBill()
+	public CCardJDialogGenBill()
 	{
 		this((Frame)null);
 	}

@@ -17,12 +17,12 @@ import edu.mum.cs525.finco.customersubsystem.model.IPerson;
 import edu.mum.cs525.finco.customersubsystem.model.Person;
 import edu.mum.cs525.finco.presentation.FinCoJDialog_AddPAcc;
 
-public class JDialog_AddPAcc extends FinCoJDialog_AddPAcc
+public class BankJDialog_AddPAcc extends FinCoJDialog_AddPAcc
 {
 	private static final long serialVersionUID = -8144103120067984196L;
 	private BankFrm parentframe;
     
-	public JDialog_AddPAcc(BankFrm parent, IFinCo finco)
+	public BankJDialog_AddPAcc(BankFrm parent, IFinCo finco)
 	{
 		super(parent, finco);
 		parentframe=parent;

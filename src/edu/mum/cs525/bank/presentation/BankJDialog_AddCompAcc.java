@@ -15,13 +15,13 @@ import edu.mum.cs525.finco.presentation.FinCoJDialog_AddCompAcc;
 
 
 
-public class JDialog_AddCompAcc extends FinCoJDialog_AddCompAcc
+public class BankJDialog_AddCompAcc extends FinCoJDialog_AddCompAcc
 {
 
 	private static final long serialVersionUID = 5744267802974372124L;
 	private BankFrm parentframe;
     
-	public JDialog_AddCompAcc(BankFrm parent, IFinCo finco)
+	public BankJDialog_AddCompAcc(BankFrm parent, IFinCo finco)
 	{
 		super(parent, finco);
 		parentframe=parent;

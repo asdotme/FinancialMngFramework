@@ -128,7 +128,7 @@ public class FinCoJDialog_AddPAcc extends JDialog
 	JLabel JLabel4 = new JLabel();
 	JLabel JLabel5 = new JLabel();
 	JLabel JLabel6 = new JLabel();
-	JLabel JLabel7 = new JLabel();
+	protected JLabel JLabel7 = new JLabel();
 	protected JTextField JTextField_NAME = new JTextField();
 	protected JTextField JTextField_CT = new JTextField();
 	protected JTextField JTextField_ST = new JTextField();

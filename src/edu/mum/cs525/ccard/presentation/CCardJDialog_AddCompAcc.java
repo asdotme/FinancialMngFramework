@@ -5,11 +5,11 @@ import javax.swing.*;
 
 
 
-public class JDialog_AddCompAcc extends JDialog
+public class CCardJDialog_AddCompAcc extends JDialog
 {
     private CardFrm parentframe;
     
-	public JDialog_AddCompAcc(CardFrm parent)
+	public CCardJDialog_AddCompAcc(CardFrm parent)
 	{
 		super(parent);
 		parentframe=parent;
@@ -130,16 +130,16 @@ public class JDialog_AddCompAcc extends JDialog
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
-       parentframe.clientName=JTextField_NAME.getText();
-       parentframe.street=JTextField_STR.getText();
-       parentframe.city=JTextField_CT.getText();
-       parentframe.zip=JTextField_ZIP.getText();
-       parentframe.state=JTextField_ST.getText();
-       if (JRadioButton_Chk.isSelected())
-           parentframe.accountType="Ch";
-           else
-           parentframe.accountType="S";
-	   parentframe.newaccount=true;
+//       parentframe.clientName=JTextField_NAME.getText();
+//       parentframe.street=JTextField_STR.getText();
+//       parentframe.city=JTextField_CT.getText();
+//       parentframe.zip=JTextField_ZIP.getText();
+//       parentframe.state=JTextField_ST.getText();
+//       if (JRadioButton_Chk.isSelected())
+//           parentframe.accountType="Ch";
+//           else
+//           parentframe.accountType="S";
+//	   parentframe.newaccount=true;
 	   dispose();
 			 
 	}

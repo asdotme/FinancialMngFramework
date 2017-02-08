@@ -1,7 +1,6 @@
 package edu.mum.cs525.ccard.accountsubsystem.model;
 
 import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
-import edu.mum.cs525.finco.accountsubsystem.model.Account;
 import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
 
 /**

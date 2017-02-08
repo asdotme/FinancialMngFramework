@@ -26,7 +26,7 @@ public class FinCoMainFrame extends JFrame {
 	private DefaultTableModel model;
 	private JTable JTable1;
 	private JScrollPane JScrollPane1;
-	FinCoMainFrame myframe;
+	protected FinCoMainFrame myframe;
 	private Object rowdata[];
 	IFinCo finco;
 
@@ -135,11 +135,11 @@ public class FinCoMainFrame extends JFrame {
 		}
 	}
 
-	JPanel JPanel1 = new JPanel();
+	protected JPanel JPanel1 = new JPanel();
 	JButton JButton_PerAC = new JButton();
 	JButton JButton_CompAC = new JButton();
-	JButton JButton_Deposit = new JButton();
-	JButton JButton_Withdraw = new JButton();
+	protected JButton JButton_Deposit = new JButton();
+	protected JButton JButton_Withdraw = new JButton();
 	JButton JButton_Addinterest = new JButton();
 	JButton JButton_Exit = new JButton();
 
@@ -208,20 +208,6 @@ public class FinCoMainFrame extends JFrame {
 		FinCoJDialog_AddPAcc pac = new FinCoJDialog_AddPAcc(myframe, finco);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
-
-//		if (newaccount) {
-//			// add row to table
-//			rowdata[0] = accountnr;
-//			rowdata[1] = clientName;
-//			rowdata[2] = city;
-//			rowdata[3] = "P";
-//			rowdata[4] = accountType;
-//			rowdata[5] = "0";
-//			model.addRow(rowdata);
-//			JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
-//			newaccount = false;
-//		}
-
 	}
 
 	protected void JButtonCompAC_actionPerformed(ActionEvent event) {
@@ -233,19 +219,6 @@ public class FinCoMainFrame extends JFrame {
 		FinCoJDialog_AddCompAcc pac = new FinCoJDialog_AddCompAcc(myframe, finco);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
-//
-//		if (newaccount) {
-//			// add row to table
-//			rowdata[0] = accountnr;
-//			rowdata[1] = clientName;
-//			rowdata[2] = city;
-//			rowdata[3] = "C";
-//			rowdata[4] = accountType;
-//			rowdata[5] = "0";
-//			model.addRow(rowdata);
-//			JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
-//			newaccount = false;
-//		}
 
 	}
 
