@@ -18,7 +18,7 @@ public class CardFrm extends FinCoMainFrame
 	
     CardFrm thisframe;
     IFinCo finco;
-    
+
 	public CardFrm(IFinCo finco)
 	{
 		super(finco);
@@ -111,5 +111,5 @@ public class CardFrm extends FinCoMainFrame
 	
 		
 	}
-	
+
 

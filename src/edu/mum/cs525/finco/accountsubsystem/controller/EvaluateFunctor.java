@@ -11,8 +11,9 @@ public abstract class EvaluateFunctor {
     public abstract boolean evaluateTransactionTemplate(ITransaction transaction, IAccount account) ;
 
     public final void evaluateTemplate(ITransaction transaction, IAccount account){
-        sendEmail(account);
-        evaluateTransactionTemplate(transaction, account);
+
+        if (evaluateTransactionTemplate(transaction, account))
+            sendEmail(account);
     }
 
     private void sendEmail(IAccount count){

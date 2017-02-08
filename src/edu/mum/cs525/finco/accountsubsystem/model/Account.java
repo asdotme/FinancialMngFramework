@@ -51,24 +51,24 @@ public class Account implements IAccount{
 
 	@Override
 	public void deposite(ITransaction transaction) {
-		this.accountBalance+=transaction.getTransactionAmount();
 		evaluateTransaction(transaction);
+		this.accountBalance+=transaction.getTransactionAmount();
 		transactions.add(transaction);
 	}
 
 	@Override
 	public void withdraw(ITransaction transaction) {
-		this.accountBalance-=transaction.getTransactionAmount();
 		evaluateTransaction(transaction);
+		this.accountBalance-=transaction.getTransactionAmount();
 		transactions.add(transaction);		
 	}
 
 	@Override
 	public void addInterest() {
 		double addAmount=this.accountBalance*(this.accountInterestRate);
-		this.accountBalance+=addAmount;
 		Transaction t=new Transaction(addAmount, TransactionType.AddingInterest);
 		evaluateTransaction(t);
+		this.accountBalance+=addAmount;
 		transactions.add(t);				
 	}
 

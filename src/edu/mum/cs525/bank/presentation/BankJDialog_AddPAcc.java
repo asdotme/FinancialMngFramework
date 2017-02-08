@@ -12,6 +12,7 @@ import javax.swing.*;
 import edu.mum.cs525.bank.accountsubsystem.controller.CheckingAccountVisitor;
 import edu.mum.cs525.bank.accountsubsystem.controller.SavingAccountVisitor;
 import edu.mum.cs525.finco.IFinCo;
+import edu.mum.cs525.finco.accountsubsystem.controller.IAccountVisitor;
 import edu.mum.cs525.finco.customersubsystem.model.Address;
 import edu.mum.cs525.finco.customersubsystem.model.IAddress;
 import edu.mum.cs525.finco.customersubsystem.model.IPerson;
@@ -83,13 +84,17 @@ public class BankJDialog_AddPAcc extends FinCoJDialog_AddPAcc
 
 		IPerson person = new Person(address, name, date, email);
 		person.setAddress(address);
-		
+
+
+		IAccountVisitor visitor;
 		if(JRadioButton_Chk.isSelected())
-			finco.setAccountVisitor(new CheckingAccountVisitor());
+			visitor=new CheckingAccountVisitor();
+//			finco.setAccountVisitor(new CheckingAccountVisitor());
 		else
-			finco.setAccountVisitor(new SavingAccountVisitor());
+			visitor=new SavingAccountVisitor();
+//			finco.setAccountVisitor(new SavingAccountVisitor());
 		
-		finco.addPersonAccount(person, accountNumber);
+		finco.addPersonAccount(visitor,person, accountNumber);
 		
        dispose();
 	}

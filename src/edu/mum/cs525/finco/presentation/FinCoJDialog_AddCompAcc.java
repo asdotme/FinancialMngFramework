@@ -3,6 +3,7 @@ package edu.mum.cs525.finco.presentation;
 import javax.swing.*;
 
 import edu.mum.cs525.finco.IFinCo;
+import edu.mum.cs525.finco.accountsubsystem.controller.AccountVisitor;
 import edu.mum.cs525.finco.customersubsystem.model.Address;
 import edu.mum.cs525.finco.customersubsystem.model.Company;
 import edu.mum.cs525.finco.customersubsystem.model.IAddress;
@@ -161,7 +162,7 @@ public class FinCoJDialog_AddCompAcc extends JDialog
 		ICompany customer = new Company(address, name, numberOfEmployee, email);
 		customer.setAddress(address);
 		
-		finco.addCompanyAccount(customer, accountNumber);
+		finco.addCompanyAccount(new AccountVisitor(),customer, accountNumber);
 		
 	
 		dispose();
