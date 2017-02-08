@@ -66,7 +66,7 @@ public class BankJDialog_AddCompAcc extends FinCoJDialog_AddCompAcc
 		
 		finco.addCompanyAccount(customer, accountNumber);
 		
-		super.JButtonOK_actionPerformed(event);
+		dispose();
 	}
 
 
