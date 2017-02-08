@@ -9,7 +9,7 @@ import edu.mum.cs525.finco.accountsubsystem.model.TransactionType;
 
 import java.awt.*;
 
-public class JDialog_Deposit extends JDialog
+public class FinCoJDialog_Deposit extends JDialog
 {
     
 
@@ -19,7 +19,7 @@ public class JDialog_Deposit extends JDialog
     IFinCo finco;    
     String accountNumber;
 
-	public JDialog_Deposit(FinCoMainFrame FinCoMainFrame, String accountNumber,IFinCo finco) {
+	public FinCoJDialog_Deposit(FinCoMainFrame FinCoMainFrame, String accountNumber,IFinCo finco) {
 		super(FinCoMainFrame);
 		parentframe=FinCoMainFrame;
 		this.finco = finco;

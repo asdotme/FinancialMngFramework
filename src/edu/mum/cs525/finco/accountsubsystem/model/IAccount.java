@@ -11,5 +11,6 @@ public interface IAccount {
     public ICustomer getAccountOwner();
     public double getAccountBalance() ;
     public String getAccountNumber();
+    public String getAccountType();
     
 }

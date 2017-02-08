@@ -10,7 +10,7 @@ import edu.mum.cs525.finco.accountsubsystem.model.TransactionType;
 
 import java.awt.*;
 
-public class JDialog_Withdraw extends JDialog {
+public class FinCoJDialog_Withdraw extends JDialog {
 
 	private static final long serialVersionUID = 1811479247892592056L;
 	private FinCoMainFrame parentframe;
@@ -21,7 +21,7 @@ public class JDialog_Withdraw extends JDialog {
 	IAccount account;
 	double accountBalance;
 
-	public JDialog_Withdraw(FinCoMainFrame FinCoMainFrame, String accountNumber, IFinCo finco, double d) {
+	public FinCoJDialog_Withdraw(FinCoMainFrame FinCoMainFrame, String accountNumber, IFinCo finco, double d) {
 		super(FinCoMainFrame);
 		this.parentframe = FinCoMainFrame;
 		this.account = finco.getAccountFromAccountNumber(accountNumber);

@@ -27,8 +27,8 @@ import edu.mum.cs525.finco.presentation.Mediator;
  */
 public class FinCo implements IFinCo {
 
-    IAccountController accountController;
-    ICustomerController customerController;
+    protected IAccountController accountController;
+    protected ICustomerController customerController;
     protected DefaultTableModel defaultTableModel;
     EvaluateFunctor evaluateFuctor;
     String amountColumnLabel = "Amount";
@@ -72,11 +72,11 @@ public class FinCo implements IFinCo {
         FinCo finco = new FinCo();
         
         String[] dataTableCols = {"AccountNo", "Name", "Type", "Balance"};
-        finco.initializeFincoApp(dataTableCols);
+        finco.initializeFincoApp(dataTableCols, "FinCo application");
 
     }
 
-    private void initializeFincoApp(String[] dataTableCols) {
+    protected void initializeFincoApp(String[] dataTableCols, String applicationTitle) {
         //initialize defaultdatatablecolumn
         defaultTableModel = new DefaultTableModel();
         for (String colName : dataTableCols) {
@@ -95,6 +95,7 @@ public class FinCo implements IFinCo {
         }
         this.setDefaultTableModel(defaultTableModel);
         FinCoMainFrame frame = new FinCoMainFrame(this);
+        frame.setTitle(applicationTitle);
         mediator = new Mediator(frame);
         mediator.checkOperationState();
         frame.setVisible(true);

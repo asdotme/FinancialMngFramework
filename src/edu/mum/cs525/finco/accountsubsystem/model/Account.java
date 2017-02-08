@@ -145,4 +145,10 @@ public class Account implements IAccount{
 	public double getAccountInterestRate() {
 		return accountInterestRate;
 	}
+
+	@Override
+	public String getAccountType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
