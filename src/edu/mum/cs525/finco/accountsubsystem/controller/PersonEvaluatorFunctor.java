@@ -9,6 +9,10 @@ import edu.mum.cs525.finco.accountsubsystem.model.ITransaction;
 public class PersonEvaluatorFunctor extends EvaluateFunctor {
     @Override
     public boolean evaluateTransactionTemplate(ITransaction transaction, IAccount account) {
-        return (transaction.getTransactionAmount()>500 || account.getAccountBalance()<transaction.getTransactionAmount())?true:false;
+         if(transaction.getTransactionAmount()>500)
+             if(account.getAccountBalance()<transaction.getTransactionAmount())
+                 return true;
+
+        return false;
     }
 }

@@ -10,16 +10,17 @@ public  class AccountLogger implements IAccount {
 
 
     public void preExecute(){
-        System.out.println("Logging");
+        System.out.println("Pre Operation Logging");
     }
     public void postExecute(){
-
+        System.out.println("Post Operation Logging");
     }
 
 
     @Override
     public void deposite(ITransaction transaction) {
         // TODO Auto-generated method stub
+        preExecute();
         account.deposite(transaction);
         postExecute();
     }
@@ -28,6 +29,7 @@ public  class AccountLogger implements IAccount {
     @Override
     public void withdraw(ITransaction transaction) {
         // TODO Auto-generated method stub
+        preExecute();
         account.withdraw(transaction);
         postExecute();
     }
@@ -36,6 +38,7 @@ public  class AccountLogger implements IAccount {
     @Override
     public void addInterest() {
         // TODO Auto-generated method stub
+        preExecute();
         account.addInterest();
         postExecute();
     }
