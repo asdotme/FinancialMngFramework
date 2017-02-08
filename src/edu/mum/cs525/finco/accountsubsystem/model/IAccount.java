@@ -12,5 +12,7 @@ public interface IAccount {
     public double getAccountBalance() ;
     public String getAccountNumber();
     public String getAccountType();
+    public void setAccountType(String accountType);
+    
     
 }

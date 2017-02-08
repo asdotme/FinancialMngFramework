@@ -18,6 +18,8 @@ public class Account implements IAccount{
     
     private double accountInterestRate;
     
+    private String accountType;
+    
 	private List<ITransaction> transactions;
 	private EvaluateFunctor func;
 	
@@ -149,6 +151,14 @@ public class Account implements IAccount{
 	@Override
 	public String getAccountType() {
 		// TODO Auto-generated method stub
-		return null;
+		return accountType;
 	}
+
+	@Override
+	public void setAccountType(String accountType) {
+		// TODO Auto-generated method stub
+		this.accountType = accountType;
+	}
+	
+	
 }

@@ -4,15 +4,10 @@ import javax.swing.*;
 
 import edu.mum.cs525.finco.IFinCo;
 import edu.mum.cs525.finco.accountsubsystem.controller.AccountVisitor;
-import edu.mum.cs525.finco.accountsubsystem.controller.CompanyEvaluatorFunctor;
-import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
-import edu.mum.cs525.finco.accountsubsystem.model.Account;
-import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 import edu.mum.cs525.finco.customersubsystem.model.Address;
 import edu.mum.cs525.finco.customersubsystem.model.Company;
 import edu.mum.cs525.finco.customersubsystem.model.IAddress;
 import edu.mum.cs525.finco.customersubsystem.model.ICompany;
-import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
 
 import java.awt.*;
 
@@ -111,6 +106,7 @@ public class FinCoJDialog_AddCompAcc extends JDialog
 		JButton_OK.addActionListener(lSymAction);
 		JButton_Calcel.addActionListener(lSymAction);
 		//}}
+		System.out.println("get content pane object is from finco"+ getContentPane());
 	}
 
 

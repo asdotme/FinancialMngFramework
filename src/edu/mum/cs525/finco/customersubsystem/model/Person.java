@@ -62,4 +62,11 @@ public class Person extends Customer implements IPerson{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "P";
+	}
+	
 }

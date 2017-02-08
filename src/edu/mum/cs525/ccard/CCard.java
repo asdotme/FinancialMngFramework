@@ -1,6 +1,7 @@
 package edu.mum.cs525.ccard;
 
 import edu.mum.cs525.ccard.accountsubsystem.model.ICCardAccount;
+import edu.mum.cs525.ccard.presentation.CardFrm;
 import edu.mum.cs525.finco.FinCo;
 import edu.mum.cs525.finco.accountsubsystem.controller.AccountController;
 import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
@@ -38,12 +39,9 @@ public class CCard extends FinCo {
 
 
     public static void main(String[] args) {
-    	IAccountController acctController = new AccountController();
-    	acctController.setDbStore(new DataAccessSubSystem()); //set the database system
-        CCard finco = new CCard();
-        
-        String[] dataTableCols = {"Name", "ccNumber", "expDate", "type", "Amount"};
-        finco.initializeFincoApp(dataTableCols, "CCard system");
+        CCard card = new CCard();
+        String[] dataTableCols = {"ccNumber", "Name", "expDate", "type", "Amount"};
+        card.initializeFincoApp(dataTableCols, new CardFrm(card),"CCard system");
 
     }
 
@@ -59,9 +57,10 @@ public class CCard extends FinCo {
     public void addRow(IAccount account) {
 		ICustomer customer = account.getAccountOwner();
 		Object rowdata[] = new Object[defaultTableModel.getColumnCount()];
-		rowdata[0] = customer.getName();
-		rowdata[1] = account.getAccountNumber();
-		rowdata[2] = ((ICCardAccount)account).getExpireDate();
+		rowdata[0] = account;
+		rowdata[1] = customer.getName();
+		rowdata[2] = account.getAccountNumber();
+		rowdata[3] = ((ICCardAccount)account).getExpireDate();
 		rowdata[4] = account.getAccountBalance();
 		defaultTableModel.addRow(rowdata);
     }
