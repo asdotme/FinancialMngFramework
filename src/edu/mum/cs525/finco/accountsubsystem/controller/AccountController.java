@@ -1,5 +1,6 @@
 package edu.mum.cs525.finco.accountsubsystem.controller;
 
+import edu.mum.cs525.finco.accountsubsystem.model.AccountLogger;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 import edu.mum.cs525.finco.accountsubsystem.model.ITransaction;
 import edu.mum.cs525.finco.accountsubsystem.model.Transaction;
@@ -33,7 +34,8 @@ public class AccountController implements IAccountController {
         List<IAccount> accountList= dbStore.getAccountList();
         Iterator<IAccount> accountIterator=accountList.iterator();
         while(accountIterator.hasNext()){
-            accountIterator.next().addInterest();
+			AccountLogger accountLogger=new AccountLogger(accountIterator.next());
+            accountLogger.addInterest();
         }
     }
 
@@ -45,13 +47,15 @@ public class AccountController implements IAccountController {
 	@Override
 	public void depositeMoney(ITransaction transaction, IAccount account) {
 		// TODO Auto-generated method stub
-		account.deposite((Transaction) transaction);
+		AccountLogger accountLogger=new AccountLogger(account);
+		accountLogger.deposite((Transaction) transaction);
 	}
 
 	@Override
 	public void withdrawMoney(ITransaction transaction, IAccount account) {
 		// TODO Auto-generated method stub
-		account.withdraw((Transaction) transaction);
+		AccountLogger accountLogger=new AccountLogger(account);
+		accountLogger.withdraw((Transaction) transaction);
 	}
 
 	public IDataAccessSubSystem getDbStore() {

@@ -1,4 +1,4 @@
-package edu.mum.cs525.bank.accountsubsystem;
+package edu.mum.cs525.bank.accountsubsystem.model;
 
 import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
 import edu.mum.cs525.finco.accountsubsystem.model.Account;
@@ -12,7 +12,7 @@ public class SavingBankAccount extends Account {
         super(accountOwner, accountNumber, accountInterestRate, evaluateFunctor);
     }
 
-    public SavingBankAccount(Customer accountOwner, String accountNumber, EvaluateFunctor evaluateFunctor) {
+    public SavingBankAccount(ICustomer accountOwner, String accountNumber, EvaluateFunctor evaluateFunctor) {
 
         super(accountOwner, accountNumber,0.1, evaluateFunctor);
     }

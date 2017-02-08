@@ -31,7 +31,7 @@ public class Account implements IAccount{
 		this.func = evaluateFunctor;
 	}
 
-    public Account(Customer accountOwner, String accountNumber, EvaluateFunctor evaluateFunctor) {
+    public Account(ICustomer accountOwner, String accountNumber, EvaluateFunctor evaluateFunctor) {
 		super();
 		this.accountOwner = accountOwner;
 		this.accountNumber = accountNumber;
