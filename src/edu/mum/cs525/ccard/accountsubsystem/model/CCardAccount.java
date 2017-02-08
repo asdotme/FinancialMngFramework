@@ -49,7 +49,7 @@ public abstract class CCardAccount extends Account implements ICCardAccount {
             int currentMonth = localDate.getMonthValue();
             return x.getTransactionDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getMonthValue()==currentMonth;}).collect(Collectors.toList());
         for (ITransaction transaction :currentTransactions) {
-            if (transaction.getTransactionType()== TransactionType.Deposite){
+            if (transaction.getTransactionType()== TransactionType.DEPOSIT){
                 totalCharges+=transaction.getTransactionAmount();
             }else
             {

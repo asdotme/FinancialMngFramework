@@ -12,14 +12,14 @@ import edu.mum.cs525.finco.customersubsystem.model.ICompany;
 import java.awt.*;
 
 
-public class FinCoJDialog_AddCompAcc extends JDialog
+public class FinCoAddCompanyAccountDialog extends JDialog
 {
 
 	private static final long serialVersionUID = 4711788845311172871L;
 	private FinCoMainFrame parentframe;
 	protected IFinCo finco;
 
-	public FinCoJDialog_AddCompAcc(FinCoMainFrame parent, IFinCo finco)
+	public FinCoAddCompanyAccountDialog(FinCoMainFrame parent, IFinCo finco)
 	{
 		super(parent);
 		parentframe=parent;

@@ -9,7 +9,7 @@ import edu.mum.cs525.finco.accountsubsystem.model.TransactionType;
 
 import java.awt.*;
 
-public class FinCoJDialog_Deposit extends JDialog
+public class FinCoDepositDialog extends JDialog
 {
     
 
@@ -19,7 +19,7 @@ public class FinCoJDialog_Deposit extends JDialog
     IFinCo finco;    
     String accountNumber;
 
-	public FinCoJDialog_Deposit(FinCoMainFrame FinCoMainFrame, String accountNumber,IFinCo finco) {
+	public FinCoDepositDialog(FinCoMainFrame FinCoMainFrame, String accountNumber,IFinCo finco) {
 		super(FinCoMainFrame);
 		parentframe=FinCoMainFrame;
 		this.finco = finco;
@@ -107,7 +107,7 @@ public class FinCoJDialog_Deposit extends JDialog
                     "Invalid deposit attempt!"
                     , JOptionPane.WARNING_MESSAGE);
 		} else{
-		finco.depositeMoney(account, new Transaction(amount, TransactionType.Deposite));
+		finco.depositeMoney(account, new Transaction(amount, TransactionType.DEPOSIT));
 		}
 		//finco.depositeMoney(account, rowIndex, Double.parseDouble( JTextField_Deposit.getText()));
 		dispose();

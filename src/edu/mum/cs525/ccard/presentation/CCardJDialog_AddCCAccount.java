@@ -17,10 +17,10 @@ import edu.mum.cs525.finco.customersubsystem.model.Address;
 import edu.mum.cs525.finco.customersubsystem.model.IAddress;
 import edu.mum.cs525.finco.customersubsystem.model.IPerson;
 import edu.mum.cs525.finco.customersubsystem.model.Person;
-import edu.mum.cs525.finco.presentation.FinCoJDialog_AddPAcc;
+import edu.mum.cs525.finco.presentation.FinCoAddPersonAccountDialog;
 import edu.mum.cs525.finco.presentation.FinCoMainFrame;
 
-public class CCardJDialog_AddCCAccount extends FinCoJDialog_AddPAcc {
+public class CCardJDialog_AddCCAccount extends FinCoAddPersonAccountDialog {
 
     private static final long serialVersionUID = 8567304655766649204L;
 

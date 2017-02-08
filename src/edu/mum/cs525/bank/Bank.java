@@ -7,29 +7,26 @@ import edu.mum.cs525.finco.customersubsystem.model.IAddress;
 import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
 import javax.swing.table.DefaultTableModel;
 
-/**
- * Created by asme on 2/6/17.
- */
 public class Bank extends FinCo {
 
-    String amountColumnLabel = "Amount";
+	String amountColumnLabel = "Amount";
 
-    public static void main(String[] args) {
-        Bank bank = new Bank();
-        String[] dataTableCols = {"AccountNo", "Name", "city", "P/C", "Type","Amount"};
-        bank.initializeFincoApp(dataTableCols, new BankFrm(bank), "Bank system");
+	public static void main(String[] args) {
+		Bank bank = new Bank();
+		String[] dataTableCols = { "AccountNo", "Name", "city", "P/C", "Type", "Amount" };
+		bank.initializeFincoApp(dataTableCols, new BankFrm(bank), "Bank system");
 
-    }
+	}
 
-    public DefaultTableModel getDefaultTableModel() {
-        return defaultTableModel;
-    }
+	public DefaultTableModel getDefaultTableModel() {
+		return defaultTableModel;
+	}
 
-    public void setDefaultTableModel(DefaultTableModel defaultTableModel) {
-        this.defaultTableModel = defaultTableModel;
-    }
+	public void setDefaultTableModel(DefaultTableModel defaultTableModel) {
+		this.defaultTableModel = defaultTableModel;
+	}
 
-    public void addRow(IAccount account) {
+	public void addRow(IAccount account) {
 		ICustomer customer = account.getAccountOwner();
 		IAddress address = customer.getAddress();
 		Object rowdata[] = new Object[defaultTableModel.getColumnCount()];
@@ -40,9 +37,6 @@ public class Bank extends FinCo {
 		rowdata[4] = account.getAccountType();
 		rowdata[5] = account.getAccountBalance();
 		defaultTableModel.addRow(rowdata);
-    }
-    
+	}
+
 }
-
-
-

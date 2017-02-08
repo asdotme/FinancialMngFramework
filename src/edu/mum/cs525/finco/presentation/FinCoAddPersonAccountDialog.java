@@ -18,12 +18,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class FinCoJDialog_AddPAcc extends JDialog
+public class FinCoAddPersonAccountDialog extends JDialog
 {
 	private static final long serialVersionUID = -3120942598423814741L;
 	private FinCoMainFrame parentframe;
 	protected IFinCo finco;
-	public FinCoJDialog_AddPAcc(FinCoMainFrame parent, IFinCo finco)
+	public FinCoAddPersonAccountDialog(FinCoMainFrame parent, IFinCo finco)
 	{
 		super(parent);
 		parentframe=parent;

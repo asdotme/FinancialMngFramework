@@ -210,7 +210,7 @@ public class FinCoMainFrame extends JFrame {
 		 * it
 		 */
 
-		FinCoJDialog_AddPAcc pac = new FinCoJDialog_AddPAcc(myframe, finco);
+		FinCoAddPersonAccountDialog pac = new FinCoAddPersonAccountDialog(myframe, finco);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 	}
@@ -221,7 +221,7 @@ public class FinCoMainFrame extends JFrame {
 		 * show it
 		 */
 
-		FinCoJDialog_AddCompAcc pac = new FinCoJDialog_AddCompAcc(myframe, finco);
+		FinCoAddCompanyAccountDialog pac = new FinCoAddCompanyAccountDialog(myframe, finco);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 
@@ -234,7 +234,7 @@ public class FinCoMainFrame extends JFrame {
 		if (selection >= 0) {
 			IAccount account = (IAccount) finco.getDefaultTableModel().getValueAt(selection, 0);
 			String accountNumber = account.toString();
-			JDialog dep = new FinCoJDialog_Deposit(this, accountNumber, finco);
+			JDialog dep = new FinCoDepositDialog(this, accountNumber, finco);
 			dep.setBounds(430, 15, 275, 140);
 			dep.setVisible(true);
 		}
@@ -250,7 +250,7 @@ public class FinCoMainFrame extends JFrame {
 
 			// IAccount account = (IAccount)
 			// finco.getDefaultTableModel().getValueAt(selection, 0);
-			JDialog withdrawDialog = new FinCoJDialog_Withdraw(this, accountNumber, finco, account.getAccountBalance());
+			JDialog withdrawDialog = new FinCoWithdrawDialog(this, accountNumber, finco, account.getAccountBalance());
 			withdrawDialog.setBounds(430, 15, 275, 140);
 			withdrawDialog.setVisible(true);
 		}

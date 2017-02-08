@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 import edu.mum.cs525.finco.IFinCo;
-import edu.mum.cs525.finco.presentation.FinCoJDialog_AddPAcc;
+import edu.mum.cs525.finco.presentation.FinCoAddPersonAccountDialog;
 import edu.mum.cs525.finco.presentation.FinCoMainFrame;
 
 import javax.swing.*;
@@ -82,7 +82,7 @@ public class CardFrm extends FinCoMainFrame
 	@Override
 	protected void JButtonPerAC_actionPerformed(ActionEvent event) {
 		// TODO Auto-generated method stub
-		FinCoJDialog_AddPAcc pac = new CCardJDialog_AddCCAccount(myframe, finco); //person
+		FinCoAddPersonAccountDialog pac = new CCardJDialog_AddCCAccount(myframe, finco); //person
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 	}

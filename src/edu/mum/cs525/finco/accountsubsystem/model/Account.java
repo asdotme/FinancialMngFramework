@@ -66,7 +66,7 @@ public class Account implements IAccount{
 	@Override
 	public void addInterest() {
 		double addAmount=this.accountBalance*(this.accountInterestRate);
-		Transaction t=new Transaction(addAmount, TransactionType.AddingInterest);
+		Transaction t=new Transaction(addAmount, TransactionType.INTEREST);
 		evaluateTransaction(t);
 		this.accountBalance+=addAmount;
 		transactions.add(t);				

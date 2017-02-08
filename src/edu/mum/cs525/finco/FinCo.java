@@ -51,7 +51,7 @@ public class FinCo implements IFinCo {
     public void withdrawMoney(IAccount account, ITransaction transaction) {
     	accountController.withdrawMoney(transaction, account);
     	refreshDataTableRows();
-    	mediator.checkOperationState();
+    	mediator.updateUIComponentStates();
     }
 
     @Override
@@ -88,7 +88,7 @@ public class FinCo implements IFinCo {
         frame.setTitle(applicationTitle);
         frame.getJTable1().setModel(defaultTableModel);
         mediator = new Mediator(frame);
-        mediator.checkOperationState();
+        mediator.updateUIComponentStates();
         frame.setVisible(true);
         
 
@@ -118,7 +118,7 @@ public class FinCo implements IFinCo {
     public void depositeMoney(IAccount account, ITransaction transaction) {
     	accountController.depositeMoney(transaction, account);
     	refreshDataTableRows();
-    	mediator.checkOperationState();
+    	mediator.updateUIComponentStates();
     }
 
     public String getAmountColumnLabel() {
@@ -178,7 +178,7 @@ public class FinCo implements IFinCo {
 
 	@Override
 	public void updateUICommands() {
-		mediator.checkOperationState();
+		mediator.updateUIComponentStates();
 	}
 
 	public IAccountVisitor getAccountVisitor() {

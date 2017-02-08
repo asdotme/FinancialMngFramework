@@ -6,7 +6,7 @@ public class Mediator {
 	public Mediator(FinCoMainFrame mainFrame){
 		this.mainFrame = mainFrame;
 	}
-	public void checkOperationState(){
+	public void updateUIComponentStates(){
 		if(mainFrame.getJTable1().getSelectionModel().getMinSelectionIndex() < 0){
 			mainFrame.JButton_Deposit.setEnabled(false);
 			mainFrame.JButton_Withdraw.setEnabled(false);

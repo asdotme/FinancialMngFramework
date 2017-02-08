@@ -12,12 +12,12 @@ import edu.mum.cs525.finco.customersubsystem.model.Address;
 import edu.mum.cs525.finco.customersubsystem.model.Company;
 import edu.mum.cs525.finco.customersubsystem.model.IAddress;
 import edu.mum.cs525.finco.customersubsystem.model.ICompany;
-import edu.mum.cs525.finco.presentation.FinCoJDialog_AddCompAcc;
+import edu.mum.cs525.finco.presentation.FinCoAddCompanyAccountDialog;
 import edu.mum.cs525.finco.presentation.FinCoMainFrame;
 
 
 
-public class BankJDialog_AddCompAcc extends FinCoJDialog_AddCompAcc
+public class BankJDialog_AddCompAcc extends FinCoAddCompanyAccountDialog
 {
 
 	private static final long serialVersionUID = 5744267802974372124L;

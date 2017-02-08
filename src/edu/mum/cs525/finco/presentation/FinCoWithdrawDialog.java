@@ -10,7 +10,7 @@ import edu.mum.cs525.finco.accountsubsystem.model.TransactionType;
 
 import java.awt.*;
 
-public class FinCoJDialog_Withdraw extends JDialog {
+public class FinCoWithdrawDialog extends JDialog {
 
 	private static final long serialVersionUID = 1811479247892592056L;
 	private FinCoMainFrame parentframe;
@@ -21,7 +21,7 @@ public class FinCoJDialog_Withdraw extends JDialog {
 	IAccount account;
 	double accountBalance;
 
-	public FinCoJDialog_Withdraw(FinCoMainFrame FinCoMainFrame, String accountNumber, IFinCo finco, double d) {
+	public FinCoWithdrawDialog(FinCoMainFrame FinCoMainFrame, String accountNumber, IFinCo finco, double d) {
 		super(FinCoMainFrame);
 		this.parentframe = FinCoMainFrame;
 		this.account = finco.getAccountFromAccountNumber(accountNumber);
@@ -94,7 +94,7 @@ public class FinCoJDialog_Withdraw extends JDialog {
 					JOptionPane.WARNING_MESSAGE);
 		} else {
 
-			finco.withdrawMoney(account, new Transaction(amount, TransactionType.Withdraw));
+			finco.withdrawMoney(account, new Transaction(amount, TransactionType.WITHDRAW));
 		}
 		dispose();
 	}
