@@ -1,11 +1,11 @@
 package edu.mum.cs525.finco.customersubsystem.model;
 
 public class Address implements IAddress{
-    private String state;
-    private String city;
-    private String street;
-    private String zip;
-    
+	private String state;
+	private String city;
+	private String street;
+	private String zip;
+
 	public Address(String state, String city, String street, String zip) {
 		super();
 		this.state = state;
@@ -37,4 +37,5 @@ public class Address implements IAddress{
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
+
 }

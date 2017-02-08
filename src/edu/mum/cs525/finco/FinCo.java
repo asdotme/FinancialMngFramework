@@ -136,7 +136,10 @@ public class FinCo implements IFinCo {
         }*/
 
         //update the model and the account, push it also into the database
-    	//account.deposite(transaction);
+
+
+    	account.deposite(transaction);
+
 
     }
 

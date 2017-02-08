@@ -94,7 +94,7 @@ public class JDialog_Withdraw extends JDialog
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
-		finco.withdrawMoney(account, rowIndex, Double.parseDouble(JTextField_AMT.getText()));
+//		finco.withdrawMoney(account, rowIndex, Double.parseDouble(JTextField_AMT.getText()));
 		dispose();
 	}
 
