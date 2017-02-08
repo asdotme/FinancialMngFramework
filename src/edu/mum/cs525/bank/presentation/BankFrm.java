@@ -26,7 +26,7 @@ public class BankFrm extends JFrame
 	{
 		myframe = this;
 
-		setTitle("Bank Application.");
+		setTitle("CCard Application.");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0,0));
 		setSize(575,310);

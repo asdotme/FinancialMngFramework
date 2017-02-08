@@ -1,4 +1,4 @@
-package edu.mum.cs525.ccard.persentation;
+package edu.mum.cs525.ccard.presentation;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

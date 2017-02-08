@@ -1,4 +1,4 @@
-package edu.mum.cs525.ccard.persentation;/*
+package edu.mum.cs525.ccard.presentation;/*
 		A basic implementation of the JDialog class.
 */
 
