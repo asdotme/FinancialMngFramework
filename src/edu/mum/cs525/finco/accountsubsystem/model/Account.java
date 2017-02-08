@@ -134,7 +134,8 @@ public class Account implements IAccount{
 	public void setFunc(EvaluateFunctor func) {
 		this.func = func;
 	}
-	
 
-	
+	public double getAccountInterestRate() {
+		return accountInterestRate;
+	}
 }
