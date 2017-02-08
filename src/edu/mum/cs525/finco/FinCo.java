@@ -168,15 +168,17 @@ public class FinCo implements IFinCo {
 	}
 
 	@Override
-	public void addCompanyAccount(ICompany company, String accountNumber) {
-		accountController.createCompanyAccount(accountVisitor, company, accountNumber);
-		addRow(accountController.getAccount(accountNumber));
+	public void addCompanyAccount(IAccountVisitor accountVisitor,ICompany company, String accountNumber) {
+        this.accountVisitor=accountVisitor;
+        accountController.createCompanyAccount(accountVisitor, company, accountNumber);
+        addRow(accountController.getAccount(accountNumber));
 	
 	}
 
 	@Override
-	public void addPersonAccount(IPerson person, String accountNumber) {
-		accountController.createPersonAccount(new AccountVisitor(), person, accountNumber);	
+	public void addPersonAccount(IAccountVisitor accountVisitor,IPerson person, String accountNumber) {
+		accountController.createPersonAccount(accountVisitor, person, accountNumber);
+		this.accountVisitor=accountVisitor;
 		addRow(accountController.getAccount(accountNumber));
 	}
 

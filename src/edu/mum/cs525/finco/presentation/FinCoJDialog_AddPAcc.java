@@ -7,6 +7,7 @@ package edu.mum.cs525.finco.presentation;/*
 import javax.swing.*;
 
 import edu.mum.cs525.finco.IFinCo;
+import edu.mum.cs525.finco.accountsubsystem.controller.AccountVisitor;
 import edu.mum.cs525.finco.customersubsystem.model.Address;
 import edu.mum.cs525.finco.customersubsystem.model.IAddress;
 import edu.mum.cs525.finco.customersubsystem.model.IPerson;
@@ -210,7 +211,7 @@ public class FinCoJDialog_AddPAcc extends JDialog
 
 		IPerson person = new Person(address, name, date, email);
 		person.setAddress(address);
-		finco.addPersonAccount(person, accountNumber);
+		finco.addPersonAccount(new AccountVisitor(),person, accountNumber);
 		dispose();
 	}
 

@@ -198,6 +198,10 @@ public class FinCoMainFrame extends JFrame {
 		System.exit(0);
 	}
 
+	/**
+	 * adding personal account
+	 * @param event
+	 */
 	protected void JButtonPerAC_actionPerformed(ActionEvent event) {
 		/*
 		 * JDialog_AddPAcc type object is for adding personal information
@@ -262,5 +266,5 @@ public class FinCoMainFrame extends JFrame {
 	JTable getJTable1() {
 		return JTable1;
 	}
-	
+
 }

@@ -166,7 +166,7 @@ public class FinCoJDialog_AddCompAcc extends JDialog
 		ICompany customer = new Company(address, name, numberOfEmployee, email);
 		customer.setAddress(address);
 		
-		finco.addCompanyAccount(customer, accountNumber);
+		finco.addCompanyAccount(new AccountVisitor(),customer, accountNumber);
 		
 	
 		dispose();

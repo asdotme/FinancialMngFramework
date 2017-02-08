@@ -7,6 +7,7 @@ import javax.swing.*;
 import edu.mum.cs525.bank.accountsubsystem.controller.CheckingAccountVisitor;
 import edu.mum.cs525.bank.accountsubsystem.controller.SavingAccountVisitor;
 import edu.mum.cs525.finco.IFinCo;
+import edu.mum.cs525.finco.accountsubsystem.controller.IAccountVisitor;
 import edu.mum.cs525.finco.customersubsystem.model.Address;
 import edu.mum.cs525.finco.customersubsystem.model.Company;
 import edu.mum.cs525.finco.customersubsystem.model.IAddress;
@@ -57,15 +58,19 @@ public class BankJDialog_AddCompAcc extends FinCoJDialog_AddCompAcc
 		
 		IAddress address = new Address(state, city, street, zip); 
 
-		ICompany customer = new Company(address, name, numberOfEmployee, email);
-		customer.setAddress(address);
+		ICompany company = new Company(address, name, numberOfEmployee, email);
+		company.setAddress(address);
+
+		IAccountVisitor visitor;
 		if(JRadioButton_Chk.isSelected())
-			finco.setAccountVisitor(new CheckingAccountVisitor());
+			visitor=new CheckingAccountVisitor();
+//			finco.setAccountVisitor(new CheckingAccountVisitor());
 		else
-			finco.setAccountVisitor(new SavingAccountVisitor());
-		
-		finco.addCompanyAccount(customer, accountNumber);
-		
+			visitor=new SavingAccountVisitor();
+//			finco.setAccountVisitor(new SavingAccountVisitor());
+
+		finco.addCompanyAccount(visitor,company, accountNumber);
+
 		super.JButtonOK_actionPerformed(event);
 	}
 

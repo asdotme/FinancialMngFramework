@@ -22,7 +22,7 @@ public class CardFrm extends FinCoMainFrame
     private JTable JTable1;
     CardFrm thisframe;
     IFinCo finco;
-    
+
 	public CardFrm(IFinCo finco)
 	{
 		super(finco);
@@ -82,8 +82,14 @@ public class CardFrm extends FinCoMainFrame
 		billFrm.show();
 	    
 	}
-	
-		
-	}
+//	class SymAction implements java.awt.event.ActionListener {
+//		public void actionPerformed(ActionEvent event) {
+//				JButtonAddinterest_actionPerformed(event);
+//
+//		}
+//	}
+
+
+}
 	
 
