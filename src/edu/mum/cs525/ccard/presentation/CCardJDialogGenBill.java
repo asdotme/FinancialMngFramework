@@ -3,7 +3,11 @@ package edu.mum.cs525.ccard.presentation;/*
 */
 
 import java.awt.*;
+
 import javax.swing.*;
+
+import edu.mum.cs525.finco.IFinCo;
+import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 
 public class CCardJDialogGenBill extends JDialog
 {
@@ -13,7 +17,7 @@ public class CCardJDialogGenBill extends JDialog
 	private static final long serialVersionUID = -7762025157796383400L;
 	String billstring;
     
-	public CCardJDialogGenBill(Frame parent)
+	public CCardJDialogGenBill(Frame parent, String accountNumber, IFinCo finco)
 	{
 		super(parent);
 		
@@ -36,7 +40,7 @@ public class CCardJDialogGenBill extends JDialog
 		JButton_OK.setBounds(156,276,96,24);
 
 		// generate the string for the monthly bill
-		billstring = "Name= John White\r\n";
+		/*billstring = "Name= John White\r\n";
 		billstring += "Address= 1000 Main, Fairfield, IA, 52556\r\n";
 		billstring += "CC number= 2341 3421 4444 5689\r\n";
 		billstring += "CC type= GOLD\r\n";
@@ -55,8 +59,11 @@ public class CCardJDialogGenBill extends JDialog
 		billstring += "Total Credits = $ 45.00\r\n";
 		billstring += "Total Charges = $ 150.00\r\n";
 		billstring += "New balance = $ 313.53\r\n";
-		billstring += "Total amount due = $ 34.49\r\n";
-		JTextField1.setText(billstring);
+		billstring += "Total amount due = $ 34.49\r\n";*/
+		
+		IAccount account=finco.getAccountFromAccountNumber(accountNumber);
+		String report=finco.generateReport(account);
+		JTextField1.setText(report);
 		//}}
 	
 		//{{REGISTER_LISTENERS
@@ -67,7 +74,7 @@ public class CCardJDialogGenBill extends JDialog
 
 	public CCardJDialogGenBill()
 	{
-		this((Frame)null);
+		this((Frame)null,null,null);
 	}
 
 
