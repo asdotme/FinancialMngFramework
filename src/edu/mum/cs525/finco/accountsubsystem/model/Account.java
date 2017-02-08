@@ -141,5 +141,8 @@ public class Account implements IAccount{
 	}
 	
 
-	
+
+	public double getAccountInterestRate() {
+		return accountInterestRate;
+	}
 }
