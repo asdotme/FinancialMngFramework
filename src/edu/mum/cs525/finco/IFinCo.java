@@ -24,4 +24,5 @@ public interface IFinCo {
    /* public void withdrawMoney(IAccount account, int rowIndex, double parseDouble);
     public void addCustomer(ICustomer customer);*/
     public void setEvaluateFuctor(EvaluateFunctor evaluateFuctor);
+    public IAccount getAccountFromAccountNumber(String accountNumber);
 }

@@ -1,6 +1,7 @@
 package edu.mum.cs525.finco;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -50,7 +51,8 @@ public class FinCo implements IFinCo {
 
     @Override
     public void withdrawMoney(IAccount account, ITransaction transaction) {
-        account.withdraw(transaction);
+    	accountController.withdrawMoney(transaction, account);
+       // account.withdraw(transaction);
     }
 
     @Override
@@ -121,6 +123,7 @@ public class FinCo implements IFinCo {
 
     @Override
     public void depositeMoney(IAccount account, ITransaction transaction) {
+    	accountController.depositeMoney(transaction, account);
         /*int ammountColIndex = defaultTableModel.findColumn(getAmountColumnLabel());
         double newamount = (double) defaultTableModel.getValueAt(selectedIndex, ammountColIndex) + amount;
         defaultTableModel.setValueAt(newamount, selectedIndex, ammountColIndex); //put the value in selected row and column
@@ -134,7 +137,9 @@ public class FinCo implements IFinCo {
 
         //update the model and the account, push it also into the database
 
+
     	account.deposite(transaction);
+
 
     }
 
@@ -198,6 +203,14 @@ public class FinCo implements IFinCo {
 	@Override
 	public void addPersonAccount(IAccountVisitor accountVisitor, IPerson person, String accountNumber) {
 		accountController.createPersonAccount(accountVisitor, person, accountNumber);	
+	}
+
+	@Override
+	public IAccount getAccountFromAccountNumber(String accountNumber) {
+		IAccount account=accountController.getAccount(accountNumber);
+		return account;
+		
+			
 	}
 	
 }
