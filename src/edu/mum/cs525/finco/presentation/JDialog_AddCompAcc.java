@@ -3,6 +3,7 @@ package edu.mum.cs525.finco.presentation;
 import javax.swing.*;
 
 import edu.mum.cs525.finco.IFinCo;
+import edu.mum.cs525.finco.accountsubsystem.controller.AccountVisitor;
 import edu.mum.cs525.finco.accountsubsystem.controller.CompanyEvaluatorFunctor;
 import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
 import edu.mum.cs525.finco.accountsubsystem.model.Account;
@@ -10,6 +11,7 @@ import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 import edu.mum.cs525.finco.customersubsystem.model.Address;
 import edu.mum.cs525.finco.customersubsystem.model.Company;
 import edu.mum.cs525.finco.customersubsystem.model.IAddress;
+import edu.mum.cs525.finco.customersubsystem.model.ICompany;
 import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
 
 import java.awt.*;
@@ -164,19 +166,22 @@ public class JDialog_AddCompAcc extends JDialog
 		//create customer account
 		IAddress address = new Address(state, city, street, zip); 
 
-		ICustomer customer = new Company(address, name, numberOfEmployee, email);
+		ICompany customer = new Company(address, name, numberOfEmployee, email);
 		//create an account object
+		customer.setAddress(address);
 		
-		IAccount account = new Account();
+		IAccount account = new Account(customer, accountNumber, new CompanyEvaluatorFunctor());
 		//instantiate company evaluator functor
-		CompanyEvaluatorFunctor functor = new CompanyEvaluatorFunctor();
-		finco.setEvaluateFuctor(functor);
+		//CompanyEvaluatorFunctor functor = new CompanyEvaluatorFunctor();
+//		finco.setEvaluateFuctor(functor);
 				//
 		if (JRadioButton_Chk.isSelected())
-			parentframe.accountType="Ch";
+			new AccountVisitor().createAccount(customer, accountNumber);
+//			parentframe.accountType="Ch";
 		else
-			parentframe.accountType="S";
-		parentframe.newaccount=true;
+//			parentframe.accountType="S";
+			new AccountVisitor().createAccount(customer, accountNumber);
+//		parentframe.newaccount=true;
 		dispose();
 	}
 

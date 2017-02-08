@@ -9,4 +9,5 @@ public interface ICustomer {
 	public String getName();
 	public String getType();
 	public List<IAccount>getAccountList();
+	public void setAddress(IAddress address);
 }

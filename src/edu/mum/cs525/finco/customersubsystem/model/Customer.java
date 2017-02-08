@@ -34,7 +34,7 @@ public class Customer implements ICustomer {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(IAddress address) {
 		this.address = address;
 	}
 

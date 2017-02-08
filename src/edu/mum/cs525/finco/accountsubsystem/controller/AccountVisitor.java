@@ -18,5 +18,6 @@ public class AccountVisitor implements IAccountVisitor {
     @Override
     public IAccount createAccount(ICompany company,String accountNumber) {
     	return new Account(company,accountNumber, new CompanyEvaluatorFunctor());
+
     }
 }
