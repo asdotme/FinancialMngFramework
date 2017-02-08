@@ -4,6 +4,8 @@ import javax.swing.*;
 
 import edu.mum.cs525.finco.IFinCo;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
+import edu.mum.cs525.finco.accountsubsystem.model.Transaction;
+import edu.mum.cs525.finco.accountsubsystem.model.TransactionType;
 
 import java.awt.*;
 
@@ -94,8 +96,15 @@ public class JDialog_Deposit extends JDialog
 	{
 
 		double amount = Double.parseDouble(JTextField_Deposit.getText());
-		
-		
+		if(amount < 0){
+			JOptionPane
+            .showMessageDialog(null,
+                    "No enough money in person account",
+                    "Invalid deposit attempt!"
+                    , JOptionPane.WARNING_MESSAGE);
+		} else{
+		finco.depositeMoney(account, new Transaction(amount, TransactionType.Deposite));
+		}
 		//finco.depositeMoney(account, rowIndex, Double.parseDouble( JTextField_Deposit.getText()));
 		dispose();
 
