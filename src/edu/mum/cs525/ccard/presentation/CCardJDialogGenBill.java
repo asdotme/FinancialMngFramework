@@ -7,6 +7,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import edu.mum.cs525.finco.IFinCo;
+import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 
 public class CCardJDialogGenBill extends JDialog
 {
@@ -60,8 +61,8 @@ public class CCardJDialogGenBill extends JDialog
 		billstring += "New balance = $ 313.53\r\n";
 		billstring += "Total amount due = $ 34.49\r\n";*/
 		
-		
-		String report=finco.generateReport(finco.getAccountFromAccountNumber(accountNumber));
+		IAccount account=finco.getAccountFromAccountNumber(accountNumber);
+		String report=finco.generateReport(account);
 		JTextField1.setText(report);
 		//}}
 	
