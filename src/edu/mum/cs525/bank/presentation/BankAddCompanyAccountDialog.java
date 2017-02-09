@@ -17,12 +17,12 @@ import edu.mum.cs525.finco.presentation.FinCoMainFrame;
 
 
 
-public class BankJDialog_AddCompAcc extends FinCoAddCompanyAccountDialog
+public class BankAddCompanyAccountDialog extends FinCoAddCompanyAccountDialog
 {
 
 	private static final long serialVersionUID = 5744267802974372124L;
     
-	public BankJDialog_AddCompAcc(FinCoMainFrame parent, IFinCo finco)
+	public BankAddCompanyAccountDialog(FinCoMainFrame parent, IFinCo finco)
 	{
 		super(parent, finco);
 //		Helper.pushControls(this, 40);

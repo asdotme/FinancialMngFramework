@@ -20,11 +20,11 @@ import edu.mum.cs525.finco.customersubsystem.model.Person;
 import edu.mum.cs525.finco.presentation.FinCoAddPersonAccountDialog;
 import edu.mum.cs525.finco.presentation.FinCoMainFrame;
 
-public class BankJDialog_AddPAcc extends FinCoAddPersonAccountDialog
+public class BankAddPersonAccountDialog extends FinCoAddPersonAccountDialog
 {
 	private static final long serialVersionUID = -8144103120067984196L;
     
-	public BankJDialog_AddPAcc(FinCoMainFrame parent, IFinCo finco)
+	public BankAddPersonAccountDialog(FinCoMainFrame parent, IFinCo finco)
 	{
 		super(parent, finco);
 		

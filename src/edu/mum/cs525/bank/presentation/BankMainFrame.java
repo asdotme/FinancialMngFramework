@@ -11,14 +11,14 @@ import edu.mum.cs525.finco.presentation.FinCoMainFrame;
 import javax.swing.*;
 
 
-public class BankFrm extends FinCoMainFrame
+public class BankMainFrame extends FinCoMainFrame
 {
 	private static final long serialVersionUID = 8235385453103362093L;
 	IFinCo finco;
 	JButton JButton_CompAC = new JButton();
 
 
-	public BankFrm(IFinCo finco)
+	public BankMainFrame(IFinCo finco)
 	{
 		super(finco);
 		this.finco=finco;
@@ -26,14 +26,14 @@ public class BankFrm extends FinCoMainFrame
 	@Override
 	protected void JButtonPerAC_actionPerformed(ActionEvent event) {
 		// TODO Auto-generated method stub
-		FinCoAddPersonAccountDialog pac = new BankJDialog_AddPAcc(myframe, finco);
+		FinCoAddPersonAccountDialog pac = new BankAddPersonAccountDialog(myframe, finco);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 	}
 
 	@Override
 	protected void JButtonCompAC_actionPerformed(ActionEvent event) {
-		FinCoAddCompanyAccountDialog pac = new BankJDialog_AddCompAcc(myframe, finco);
+		FinCoAddCompanyAccountDialog pac = new BankAddCompanyAccountDialog(myframe, finco);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 	}

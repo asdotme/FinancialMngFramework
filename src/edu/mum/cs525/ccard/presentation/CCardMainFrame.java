@@ -12,14 +12,14 @@ import javax.swing.*;
 /**
  * A basic JFC based application.
  */
-public class CardFrm extends FinCoMainFrame
+public class CCardMainFrame extends FinCoMainFrame
 {
 	private static final long serialVersionUID = -7628963601322300516L;
 	
-    CardFrm thisframe;
+    CCardMainFrame thisframe;
     IFinCo finco;
 
-	public CardFrm(IFinCo finco)
+	public CCardMainFrame(IFinCo finco)
 	{
 		super(finco);
 		thisframe=this;
@@ -61,7 +61,7 @@ public class CardFrm extends FinCoMainFrame
 
 	void JButtonNewCCAC_actionPerformed(ActionEvent event)
 	{
-		CCardJDialog_AddCCAccount pac = new CCardJDialog_AddCCAccount(myframe, finco);
+		CCardAddPersonAccountDialog pac = new CCardAddPersonAccountDialog(myframe, finco);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 
@@ -73,7 +73,7 @@ public class CardFrm extends FinCoMainFrame
 	{
 		//get the selected account
 		//generate the bill
-		CCardJDialogGenBill billFrm = new CCardJDialogGenBill();
+		CCardReportDialog billFrm = new CCardReportDialog();
 		billFrm.setBounds(450, 20, 400, 350);
 		billFrm.show();
 	    
@@ -82,7 +82,7 @@ public class CardFrm extends FinCoMainFrame
 	@Override
 	protected void JButtonPerAC_actionPerformed(ActionEvent event) {
 		// TODO Auto-generated method stub
-		FinCoAddPersonAccountDialog pac = new CCardJDialog_AddCCAccount(myframe, finco); //person
+		FinCoAddPersonAccountDialog pac = new CCardAddPersonAccountDialog(myframe, finco); //person
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 	}
@@ -90,7 +90,7 @@ public class CardFrm extends FinCoMainFrame
 	@Override
 	protected void JButtonCompAC_actionPerformed(ActionEvent event) {
 		// TODO Auto-generated method stub
-		CCardJDialogGenBill billFrm = new CCardJDialogGenBill();
+		CCardReportDialog billFrm = new CCardReportDialog();
 		billFrm.setBounds(450, 20, 400, 350);
 		billFrm.show();
 	}

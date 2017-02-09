@@ -9,7 +9,7 @@ import javax.swing.*;
 import edu.mum.cs525.finco.IFinCo;
 import edu.mum.cs525.finco.accountsubsystem.model.IAccount;
 
-public class CCardJDialogGenBill extends JDialog
+public class CCardReportDialog extends JDialog
 {
     /**
 	 * 
@@ -17,7 +17,7 @@ public class CCardJDialogGenBill extends JDialog
 	private static final long serialVersionUID = -7762025157796383400L;
 	String billstring;
     
-	public CCardJDialogGenBill(Frame parent, String accountNumber, IFinCo finco)
+	public CCardReportDialog(Frame parent, String accountNumber, IFinCo finco)
 	{
 		super(parent);
 		
@@ -72,7 +72,7 @@ public class CCardJDialogGenBill extends JDialog
 		//}}
 	}
 
-	public CCardJDialogGenBill()
+	public CCardReportDialog()
 	{
 		this((Frame)null,null,null);
 	}

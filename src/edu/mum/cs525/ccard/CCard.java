@@ -1,7 +1,7 @@
 package edu.mum.cs525.ccard;
 
 import edu.mum.cs525.ccard.accountsubsystem.model.ICCardAccount;
-import edu.mum.cs525.ccard.presentation.CardFrm;
+import edu.mum.cs525.ccard.presentation.CCardMainFrame;
 import edu.mum.cs525.finco.FinCo;
 import edu.mum.cs525.finco.accountsubsystem.controller.AccountController;
 import edu.mum.cs525.finco.accountsubsystem.controller.EvaluateFunctor;
@@ -41,7 +41,7 @@ public class CCard extends FinCo {
     public static void main(String[] args) {
         CCard card = new CCard();
         String[] dataTableCols = {"ccNumber", "Name", "expDate", "type", "Amount"};
-        card.initializeFincoApp(dataTableCols, new CardFrm(card),"CCard system");
+        card.initializeFincoApp(dataTableCols, new CCardMainFrame(card),"CCard system");
 
     }
 

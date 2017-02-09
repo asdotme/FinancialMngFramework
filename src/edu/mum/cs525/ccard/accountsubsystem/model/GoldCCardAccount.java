@@ -6,18 +6,18 @@ import edu.mum.cs525.finco.customersubsystem.model.ICustomer;
 /**
  * Created by asme on 2/7/17.
  */
-public class GoldCCard extends CCardAccount {
+public class GoldCCardAccount extends CCardAccount {
 
-    public GoldCCard(ICustomer accountOwner, String accountNumber, double accountInterestRate, EvaluateFunctor evaluateFunctor) {
+    public GoldCCardAccount(ICustomer accountOwner, String accountNumber, double accountInterestRate, EvaluateFunctor evaluateFunctor) {
         super(accountOwner, accountNumber, accountInterestRate, evaluateFunctor);
     }
 
-    public GoldCCard(ICustomer accountOwner, String accountNumber, EvaluateFunctor evaluateFunctor) {
+    public GoldCCardAccount(ICustomer accountOwner, String accountNumber, EvaluateFunctor evaluateFunctor) {
 
         super(accountOwner, accountNumber,0.06, evaluateFunctor);
     }
 
-    public GoldCCard() {
+    public GoldCCardAccount() {
     }
 
 }
